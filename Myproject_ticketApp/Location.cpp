@@ -128,6 +128,38 @@ public:
 
 	}
 
+	//OPERATORS
+
+	//operator=
+	Location& operator=(const Location& source) {
+		//this (destination)
+		//source (source)
+		if (source.name != nullptr) {
+			if (this->name != nullptr) {
+				delete[] this->name;
+				this->name = nullptr;
+			}
+			this->name = new char[strlen(source.name) + 1];
+			strcpy_s(this->name, strlen(source.name) + 1, source.name);
+		}
+
+		this->address = source.address;
+		this->zoneName = source.zoneName;
+		this->maxSeats = source.maxSeats;
+		this->nrRows = source.nrRows;
+
+		return *this;
+
+	}
+
+	//DESTRUCTOR
+	~Location() {
+		if (this->name != nullptr) {
+			delete[] this->name;
+			this->name = nullptr;
+		}
+	}
+
 	//FUNCTIONS
 
 	//Print information

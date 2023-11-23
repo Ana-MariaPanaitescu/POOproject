@@ -17,6 +17,9 @@ int main() {
 
 	Location l3 = l2;  //copy constructor
 
-	l3.printLocationInfo();
+	//l3.printLocationInfo();
+
+	l1 = l3;  //  l1.operator=(l3)      
+	l1.printLocationInfo();
 
 }
