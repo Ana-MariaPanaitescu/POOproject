@@ -112,6 +112,22 @@ public:
 		this->setNrOfRows(nrRows);
 	}
 
+	//COPY CONSTRUCTOR
+	Location(const Location& source) {
+		if (source.name == nullptr) {
+			throw exception("Empty name. You don't have what to copy here");
+		}
+
+		this->name = new char[strlen(source.name) + 1];
+		strcpy_s(this->name, strlen(source.name) + 1, source.name);
+
+		this->address = source.address;
+		this->zoneName = source.zoneName;
+		this->maxSeats = source.maxSeats;
+		this->nrRows = source.nrRows;
+
+	}
+
 	//FUNCTIONS
 
 	//Print information
