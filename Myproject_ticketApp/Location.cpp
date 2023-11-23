@@ -16,6 +16,7 @@ public:
 	static int MIN_CAPACITY;
 
 public:
+	//PUBLIC INTERFACE
 
 	//GETTERS
 	//SETTERS  + VALIDATION
@@ -75,7 +76,7 @@ public:
 	}
 
 	void setMaxNrOfSeats(int newMax) {
-		if (newMax <= Location::MIN_CAPACITY) {
+		if (newMax < Location::MIN_CAPACITY) {
 			throw exception("The capacity is too small");
 		}
 		this->maxSeats = newMax;
@@ -87,23 +88,41 @@ public:
 	}
 
 	void setNrOfRows(int newValue) {
-		if (newValue <= Location::MIN_CAPACITY) {
+		if (newValue < Location::MIN_CAPACITY) {
 			throw exception("The capacity is too small");
 		}
 		this->nrRows = newValue;
 	}
 
-
-	
-
-
 	//Default constructor
 	Location() {
-		
+		this->setLocationName("No name");
+		this->setLocationAddress("No address");
+		this->setLocationZone("No chosen zone");
+		this->setMaxNrOfSeats(10);
+		this->setNrOfRows(10);
 	}
 
+	//Constructor
+	Location(const char* name, const string address, const string zoneName, const int maxCapacity, const int nrRows) {
+		this->setLocationName(name);
+		this->setLocationAddress(address);
+		this->setLocationZone(zoneName);
+		this->setMaxNrOfSeats(maxCapacity);
+		this->setNrOfRows(nrRows);
+	}
 
+	//FUNCTIONS
+
+	//Print information
+
+	void printLocationInfo() {
+		cout << endl << "--------------------------------";
+		cout << endl << "Location name: " << this->getLocationName();
+		cout << endl << "Location address: " << this->getLocationAddress();
+		cout << endl << "Zone: " << this->getZoneName();
+		cout << endl << "Maximum capacity: " << this->getMaxNrOfSeats();
+		cout << endl << "Total number of rows: " << this->getMaxNrOfRows();
+	}
 };
 
-int Location::MIN_NR_LETTERS = 5;
-int Location::MIN_CAPACITY = 10;
