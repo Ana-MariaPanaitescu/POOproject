@@ -103,7 +103,7 @@ public:
 		this->setNrOfRows(10);
 	}
 
-	//Constructor
+	//CONSTRUCTOR
 	Location(const char* name, const string address, const string zoneName, const int maxCapacity, const int nrRows) {
 		this->setLocationName(name);
 		this->setLocationAddress(address);
@@ -163,7 +163,6 @@ public:
 	//FUNCTIONS
 
 	//Print information
-
 	void printLocationInfo() {
 		cout << endl << "--------------------------------";
 		cout << endl << "Location name: " << this->getLocationName();

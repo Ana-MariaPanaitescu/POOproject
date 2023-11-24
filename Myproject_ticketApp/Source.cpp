@@ -17,8 +17,8 @@ int Event::MAX_MONTH = 12;
 
 int main() {
 	
+	//Testing phase
 
-	//Am putea sa facem o functie care iti cauta evenimentul
 	Location l1;
 	l1.printLocationInfo();
 
@@ -32,8 +32,18 @@ int main() {
 	l1 = l3;  //  l1.operator=(l3)      
 	l1.printLocationInfo();
 
-	Event e1;
-	e1.settingTheDate(4, 12, 2023);
-	e1.settingTheTime(4, 5);
+	//Event e0;
+	Event e1("Musicalul Mamma Mia", 17, 30, 8, 12, 2023);
+	//e1.displayingDate();
+	//e1.displayingTime();
+	e1.printEventInfo();
+
+	Event e2("Le Cirque Du Soleil", 9, 5, 5, 8, 2024);
+	e2.printEventInfo();
+
+	//e2 = e1;
+	//e2.printEventInfo();
+	//Event e3 = e2;
+	//e3.printEventInfo();
 
 }

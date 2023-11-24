@@ -117,36 +117,83 @@ public:
 	}
 
 	//Default construct
+private:
 	Event() {
 
 	}
 
+public:
 	//Constructor
+	Event(const char* name, int hour, int mnt, int day, int month, int year) {
+		this->setEventName(name);
+		this->setHour(hour);
+		this->setMinutes(mnt);
+		this->setDay(day);
+		this->setMonth(month);
+		this->setYear(year);
+	}
+	
 	//Copy constructor
+	Event(const Event& source) {
+		if (source.eventName == nullptr) {
+			throw exception("Empty name. You don't have what name to copy");
+		}
+		else {
+			//allocate space for the new name copied
+			this->eventName = new char[strlen(source.eventName) + 1];
+			strcpy_s(this->eventName, strlen(source.eventName) + 1, source.eventName);
+		}
+
+		this->hour = source.hour;
+		this->minutes = source.minutes;
+		this->dd = source.dd;
+		this->mm = source.mm;
+		this->yyyy = source.yyyy;
+	}
+
 	//operator=
+	Event& operator=(const Event& source) {
+		if (source.eventName != nullptr) {
+			if (this->eventName != nullptr) {
+				delete[] this->eventName;
+				this->eventName = nullptr;
+			}
+			this->eventName = new char[strlen(source.eventName) + 1];
+			strcpy_s(this->eventName, strlen(source.eventName) + 1, source.eventName);
+		}
+
+		this->hour = source.hour;
+		this->minutes = source.minutes;
+		this->dd = source.dd;
+		this->mm = source.mm;
+		this->yyyy = source.yyyy;
+
+		return *this;                 //to get the value at that address
+	}
+
 	//Destructor
+	~Event() {
+		if (this->eventName != nullptr) {
+			delete[] this->eventName;
+			this->eventName = nullptr;
+		}
+	}
+	
 	//alte functii
 
 	///////////////////////FUNCTIONS////////////////////
 
 	//Function for setting the date
-	void settingTheDate(int day, int month, int year) {
-		this->setDay(day);
-		this->setMonth(month);
-		this->setYear(year);
+	void displayingDate() {
+
 		cout << "\n\n" << this->getDay() << "/";
 		cout << this->getMonth() << "/";
 		cout << this->getYear();
 	}
 
 	//Function for setting the time
-	void settingTheTime(int h, int m) {   //h - hours  m - minutes
+	void displayingTime() {   //h - hours  m - minutes
 		// I want 23:00 or 18:05 
-
-		this->setHour(h);
-		this->setMinutes(m);
-
-		//min values is 0
 
 		if (this->hour >= 0 && this->hour < 10) {
 			cout << "\n" << '0' << this->hour;
@@ -156,16 +203,25 @@ public:
 		}
 
 		if (this->minutes >= 0 && this->minutes < 10) {
-			cout << "\n" << '0' << this->minutes;
+			cout << ":" << '0' << this->minutes;
 		}
 		else {
-			cout << "\n" << this->minutes;
+			cout << ":" << this->minutes;
 		}
 
 	}
-
 	//cred ca imi trebuie ostream si istream operator pentru afisarea si citirea datelor
 	//implementeaza operatorii
+
+	//Functie pentru afisarea datelor
+	void printEventInfo() {
+		cout << "\n";
+		cout << endl << "The event's name is: " << this->getEventName();
+		cout << endl << "..............";
+		displayingDate();
+		displayingTime();
+		cout << endl << "..............";
+	}
 
 };
 
