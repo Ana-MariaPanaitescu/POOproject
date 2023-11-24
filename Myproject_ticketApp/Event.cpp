@@ -3,8 +3,8 @@ using namespace std;
 
 class Event {
 	char* eventName = nullptr;
-	int hour = 11;
-	int minutes = 20;
+	int hour = 0;
+	int minutes = 0;
 	int dd = 0;
 	int mm = 0;
 	int yyyy = 0;
@@ -121,6 +121,14 @@ public:
 
 	}
 
+	//Constructor
+	//Copy constructor
+	//operator=
+	//Destructor
+	//alte functii
+
+	///////////////////////FUNCTIONS////////////////////
+
 	//Function for setting the date
 	void settingTheDate(int day, int month, int year) {
 		this->setDay(day);
@@ -129,6 +137,31 @@ public:
 		cout << "\n\n" << this->getDay() << "/";
 		cout << this->getMonth() << "/";
 		cout << this->getYear();
+	}
+
+	//Function for setting the time
+	void settingTheTime(int h, int m) {   //h - hours  m - minutes
+		// I want 23:00 or 18:05 
+
+		this->setHour(h);
+		this->setMinutes(m);
+
+		//min values is 0
+
+		if (this->hour >= 0 && this->hour < 10) {
+			cout << "\n" << '0' << this->hour;
+		}
+		else {
+			cout << "\n" << this->hour;
+		}
+
+		if (this->minutes >= 0 && this->minutes < 10) {
+			cout << "\n" << '0' << this->minutes;
+		}
+		else {
+			cout << "\n" << this->minutes;
+		}
+
 	}
 
 	//cred ca imi trebuie ostream si istream operator pentru afisarea si citirea datelor

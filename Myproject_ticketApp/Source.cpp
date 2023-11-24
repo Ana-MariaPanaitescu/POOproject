@@ -34,5 +34,6 @@ int main() {
 
 	Event e1;
 	e1.settingTheDate(4, 12, 2023);
+	e1.settingTheTime(4, 5);
 
 }
