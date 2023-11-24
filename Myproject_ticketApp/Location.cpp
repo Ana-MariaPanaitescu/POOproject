@@ -19,7 +19,7 @@ public:
 	//PUBLIC INTERFACE
 
 	//GETTERS
-	//SETTERS  + VALIDATION
+	//SETTERS  + VALIDATION!!!!!!!!!!
 	
 	//name
 	char* getLocationName() {
