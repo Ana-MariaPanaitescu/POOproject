@@ -4,8 +4,8 @@ using namespace std;
 class Location {
 
 	char* name = nullptr;
-	string address = "";
-	string zoneName = "";
+	string address = "-";
+	string zoneName = "-";
 	int maxSeats;
 	int nrRows;
 	//int nrCol;
@@ -20,7 +20,7 @@ public:
 
 	//GETTERS
 	//SETTERS  + VALIDATION!!!!!!!!!!
-	
+
 	//name
 	char* getLocationName() {
 
@@ -36,10 +36,10 @@ public:
 			delete[] this->name;
 			this->name = nullptr;
 		}
-		
+
 		this->name = new char[strlen(newName) + 1];
 		strcpy_s(this->name, strlen(newName) + 1, newName);
-		
+
 	}
 
 	//address
@@ -173,4 +173,3 @@ public:
 		cout << endl << "Total number of rows: " << this->getMaxNrOfRows();
 	}
 };
-

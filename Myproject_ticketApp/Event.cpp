@@ -1,5 +1,4 @@
 #include <iostream>
-#include "Location.cpp"
 using namespace std;
 
 class Event {
@@ -127,7 +126,7 @@ public:
 		this->setDay(day);
 		this->setMonth(month);
 		this->setYear(year);
-		cout << endl << this->getDay() << "/";
+		cout << "\n\n" << this->getDay() << "/";
 		cout << this->getMonth() << "/";
 		cout << this->getYear();
 	}
