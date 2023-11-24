@@ -5,6 +5,7 @@
 int Location::MIN_NR_LETTERS = 5;
 int Location::MIN_CAPACITY = 10;
 
+
 int main() {
 	
 
