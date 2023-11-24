@@ -118,11 +118,13 @@ public:
 	}
 
 	//Function for setting the date
-	void setDate(int day, int month, int year) {
+	void settingTheDate(int day, int month, int year) {
 		this->setDay(day);
 		this->setMonth(month);
 		this->setYear(year);
 	}
+
+	//cred ca imi trebuie ostream si istream operator pentru afisarea si citirea datelor
 
 };
 
