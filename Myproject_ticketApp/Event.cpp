@@ -3,12 +3,12 @@
 using namespace std;
 
 class Event {
-	char* eventName;
-	int hour;
-	int minutes;
-	int dd;
-	int mm;
-	int yyyy;
+	char* eventName = nullptr;
+	int hour = 11;
+	int minutes = 20;
+	int dd = 0;
+	int mm = 0;
+	int yyyy = 0;
 
 public:
 	static int MIN_NR_LETTERS;
@@ -117,21 +117,30 @@ public:
 		return this->yyyy;
 	}
 
+	//Default construct
+	Event() {
+
+	}
+
 	//Function for setting the date
 	void settingTheDate(int day, int month, int year) {
 		this->setDay(day);
 		this->setMonth(month);
 		this->setYear(year);
+		cout << endl << this->getDay() << "/";
+		cout << this->getMonth() << "/";
+		cout << this->getYear();
 	}
 
 	//cred ca imi trebuie ostream si istream operator pentru afisarea si citirea datelor
+	//implementeaza operatorii
 
 };
 
-int Event::MIN_NR_LETTERS = 2;
-int Event::MIN_VALUE = 0;
-int Event::MAX_HOUR = 23;
-int Event::MAX_MINUTES = 59;
-int Event::MIN_VALUE_2 = 1;
-int Event::MAX_DAY = 31;
-int Event::MAX_MONTH = 12;
+//int Event::MIN_NR_LETTERS = 2;
+//int Event::MIN_VALUE = 0;
+//int Event::MAX_HOUR = 23;
+//int Event::MAX_MINUTES = 59;
+//int Event::MIN_VALUE_2 = 1;
+//int Event::MAX_DAY = 31;
+//int Event::MAX_MONTH = 12;
