@@ -8,7 +8,6 @@ class Ticket {
 	ClientType type;
 	int clientAge;
 	int* soldTickets;
-	int noTickets = 0;
 	
 	//int row;
 	//int seatNr;
