@@ -18,7 +18,18 @@ int Event::MAX_MONTH = 12;
 int main() {
 	
 	//Testing phase
+	//imi trebuie: operators, one dynamically allocated numeric vector, one constant field, one method static
+	//overload operators << and >> 
+	//another 2 overloaded operator for each class
 
+	//one statically defined array, one dynamically array
+	//at least one class defines static field for each class
+	//at least one class defines a constant field
+	//each class at least 2 generic methods for processing/displaying
+	//each class at least 2 ctors with parameters, a copy ctor, a destructor, operator=
+	// >> and << for each class
+	// and other operators
+	
 	Location l1;
 	l1.printLocationInfo();
 
