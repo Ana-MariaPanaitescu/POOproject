@@ -9,6 +9,7 @@ class Ticket {
 	int clientAge;
 	int nrRow;
 	int nrSeat;
+	float price;
 	
 	//int* soldTickets;
 	//int noTickets = 0;
@@ -24,6 +25,7 @@ class Ticket {
 public:
 	const int id;
 	static int nrOfTickets;
+	static int MIN_VALUE;
 
 private:
 
@@ -60,11 +62,60 @@ public:
 		return this->clientType;
 	}
 
+	//Age
+	int getAge() {
+		return this->clientAge;
+	}
+
+	void setAge(int newValue){
+		if (newValue <= MIN_VALUE)
+			throw exception("Invalid age");
+		else
+		this->clientAge = newValue;
+	}
+
+	//Row
+	int getRowNr() {
+		return this->nrRow;
+	}
+
+	void setRowNr(int newValue) {
+		if (newValue < MIN_VALUE)
+			throw exception("Invalid row number");
+		else
+			this->nrRow = newValue;
+	}
+
+	//Seat
+	int getSeatNr() {
+		return this->nrSeat;
+	}
+
+	void setSeatNr(int newValue) {
+		if (newValue <= MIN_VALUE)
+			throw exception("Invalid seat number");
+		else
+			this->nrSeat = newValue;
+	}
+
+	//Price
+	float getPrice() {
+		return this->price;
+	}
+
+	void setPrice(float newPrice) {
+		if (newPrice <= MIN_VALUE)
+			throw exception("No such price value");
+		else
+			this->price = newPrice;
+	}
+
 
 
 };
 
 int Ticket::nrOfTickets = 0;
+int Ticket::MIN_VALUE = 0;
 
 //idea: I want to generate ids for the maximum capacity of the location(maximum seats)
 //I need to use the maximum capacity from the location, don't know for sure how

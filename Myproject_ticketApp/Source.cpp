@@ -2,6 +2,7 @@
 #include <string>
 #include "Location.cpp"
 #include "Event.cpp"
+#include "Ticket.cpp"
 
 int Location::MIN_NR_LETTERS = 5;
 int Location::MIN_CAPACITY = 10;
@@ -13,6 +14,8 @@ int Event::MAX_MINUTES = 59;
 int Event::MIN_VALUE_2 = 1;
 int Event::MAX_DAY = 31;
 int Event::MAX_MONTH = 12;
+
+//int Ticket::MIN_VALUE = 0;
 
 
 int main() {
