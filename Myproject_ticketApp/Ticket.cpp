@@ -5,7 +5,7 @@ enum ClientType { STUDENT = 1, CHILD = 2, ADULT = 3, RETIRED = 4 };
 
 class Ticket {
 	
-	ClientType clientType;
+	ClientType clientType = ClientType::CHILD;
 	int clientAge;
 	int nrRow;
 	int nrSeat;
@@ -23,9 +23,9 @@ class Ticket {
 	//in functie de varsta sa afisez pe bilet ClientType, si pretul(pretul difera de la client la client)
 
 public:
-	const int id;
-	static int nrOfTickets;
-	static int MIN_VALUE;
+	const int id;                     //we use it to generate ids for the clients
+	const static int MIN_VALUE;
+	static int nrOfTickets;           //used to count the tickets
 
 private:
 
@@ -110,12 +110,39 @@ public:
 			this->price = newPrice;
 	}
 
+	//Default ctor
+	Ticket() :id(Ticket::MIN_VALUE) {
+
+		Ticket::increaseByOneTicket();
+	}
+
+	//Constructor
+	Ticket(ClientType clientType, int age, int row, int seat, float price):id(Ticket::nrOfTickets) {
+		Ticket::increaseByOneTicket();
+		this->clientType = clientType;
+		this->setAge(age);
+		this->setRowNr(row);
+		this->setSeatNr(seat);
+		this->setPrice(price);
+	}
+
+	//Copy constructor
+	/*Ticket(const Ticket& source) {
+
+	}*/
+	//operator=
+	
+	//Desturctor
+	~Ticket() {
+
+	}
+
 
 
 };
 
 int Ticket::nrOfTickets = 0;
-int Ticket::MIN_VALUE = 0;
+const int Ticket::MIN_VALUE = 0;
 
 //idea: I want to generate ids for the maximum capacity of the location(maximum seats)
 //I need to use the maximum capacity from the location, don't know for sure how
