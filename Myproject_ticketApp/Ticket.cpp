@@ -6,10 +6,10 @@ enum ClientType { STUDENT = 1, CHILD = 2, ADULT = 3, RETIRED = 4 };
 class Ticket {
 	
 	ClientType clientType = ClientType::CHILD;
-	int clientAge;
-	int nrRow;
-	int nrSeat;
-	float price;
+	int clientAge = 1;
+	int nrRow = 1;
+	int nrSeat = 1;
+	float price = 1.0;
 	
 	//int* soldTickets;
 	//int noTickets = 0;
@@ -127,10 +127,25 @@ public:
 	}
 
 	//Copy constructor
-	/*Ticket(const Ticket& source) {
+	Ticket(const Ticket& source): id(source.id){
+		this->clientType = source.clientType;
+		this->clientAge = source.clientAge;
+		this->nrRow = source.nrRow;
+		this->nrSeat = source.nrSeat;
+		this->price = source.price;
 
-	}*/
+	}
 	//operator=
+	Ticket& operator=(const Ticket& source) {
+
+		this->clientType = source.clientType;
+		this->clientAge = source.clientAge;
+		this->nrRow = source.nrRow;
+		this->nrSeat = source.nrSeat;
+		this->price = source.price;
+
+		return *this;
+	}
 	
 	//Destructor
 	~Ticket() {
@@ -139,8 +154,8 @@ public:
 
 	//FUNCTIONS
 	void printTicketInfo() {
-		cout << "------------------------";
-		cout << "Id client is: " << this->id;
+		cout << endl << "------------------------";
+		cout << endl << "Id client is: " << this->id;
 		cout << endl << "Client type: " << this->getClientTypeName();
 		cout << endl << "Client age:" << this->getAge();
 		cout << endl << "Row number: " << this->getRowNr();
@@ -152,8 +167,8 @@ public:
 
 };
 
-int Ticket::nrOfTickets = 0;
-const int Ticket::MIN_VALUE = 0;
+//int Ticket::nrOfTickets = 0;
+//const int Ticket::MIN_VALUE = 0;
 
 //idea: I want to generate ids for the maximum capacity of the location(maximum seats)
 //I need to use the maximum capacity from the location, don't know for sure how
