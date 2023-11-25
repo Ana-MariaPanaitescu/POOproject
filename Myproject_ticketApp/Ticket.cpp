@@ -132,9 +132,20 @@ public:
 	}*/
 	//operator=
 	
-	//Desturctor
+	//Destructor
 	~Ticket() {
 
+	}
+
+	//FUNCTIONS
+	void printTicketInfo() {
+		cout << "------------------------";
+		cout << "Id client is: " << this->id;
+		cout << endl << "Client type: " << this->getClientTypeName();
+		cout << endl << "Client age:" << this->getAge();
+		cout << endl << "Row number: " << this->getRowNr();
+		cout << endl << "Seat number: " << this->getSeatNr();
+		cout << endl << "Price paid: " << this->getPrice();
 	}
 
 
