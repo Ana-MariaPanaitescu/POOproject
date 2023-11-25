@@ -34,27 +34,27 @@ int main() {
 	// >> and << for each class
 	// and other operators
 	
-	//Location l1;
-	//l1.printLocationInfo();
+	Location l1;
+	l1.printLocationInfo();
 
-	//Location l2("Sala Palatului", "Strada Primaverii, Nr.82", "Category B", 5000, 50);
-	////l2.printLocationInfo();
+	Location l2("Sala Palatului", "Strada Primaverii, Nr.82", "Category B", 5000, 50);
+	//l2.printLocationInfo();
 
-	//Location l3 = l2;  //copy constructor
+	Location l3 = l2;  //copy constructor
 
-	////l3.printLocationInfo();
+	//l3.printLocationInfo();
 
-	//l1 = l3;  //  l1.operator=(l3)      
-	//l1.printLocationInfo();
+	l1 = l3;  //  l1.operator=(l3)      
+	l1.printLocationInfo();
 
-	////Event e0;
-	//Event e1("Musicalul Mamma Mia", 17, 30, 8, 12, 2023);
-	////e1.displayingDate();
-	////e1.displayingTime();
-	//e1.printEventInfo();
+	//Event e0;
+	Event e1("Musicalul Mamma Mia", 17, 30, 8, 12, 2023);
+	//e1.displayingDate();
+	//e1.displayingTime();
+	e1.printEventInfo();
 
-	//Event e2("Le Cirque Du Soleil", 9, 5, 5, 8, 2024);
-	//e2.printEventInfo();
+	Event e2("Le Cirque Du Soleil", 9, 5, 5, 8, 2024);
+	e2.printEventInfo();
 
 	//e2 = e1;
 	//e2.printEventInfo();
@@ -66,5 +66,14 @@ int main() {
 
 	Ticket t2(STUDENT, 20, 5, 19, 50.30);
 	t2.printTicketInfo();
+
+	//t2 = t1;
+	//t2.printTicketInfo();
+
+	Ticket adult(ADULT, 47, 8, 1, 65.00);
+	adult.printTicketInfo();
+
+	cout << adult;
+	
 
 }

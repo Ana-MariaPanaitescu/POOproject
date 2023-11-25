@@ -152,7 +152,7 @@ public:
 
 	}
 
-	//FUNCTIONS
+	////FUNCTIONS
 	void printTicketInfo() {
 		cout << endl << "------------------------";
 		cout << endl << "Id client is: " << this->id;
@@ -163,12 +163,25 @@ public:
 		cout << endl << "Price paid: " << this->getPrice();
 	}
 
-
+	//FRIENDS
+	//friend ostream& operator<<(ostream& console, Ticket& source);
 
 };
+
+ostream& operator<<(ostream& console, Ticket& source) {
+
+	//console << endl << "Ticket data: ";
+	console << endl << "Id client: " << source.id;
+	console << endl << "ClientType: " << source.getClientTypeName();
+	console << endl << "Client age: " << source.getAge();
+	console << endl << "Row: " << source.getRowNr() << " " << "Seat: " << source.getSeatNr();
+	console << endl << "Price: " << source.getPrice();
+
+	return console;
+}
 
 //int Ticket::nrOfTickets = 0;
 //const int Ticket::MIN_VALUE = 0;
 
 //idea: I want to generate ids for the maximum capacity of the location(maximum seats)
-//I need to use the maximum capacity from the location, don't know for sure how
+//I need to use the maximum capacity from the location class, don't know for sure how

@@ -217,7 +217,7 @@ public:
 	void printEventInfo() {
 		cout << "\n";
 		cout << endl << "The event's name is: " << this->getEventName();
-		cout << endl << "..............";
+		//cout << endl << "..............";
 		displayingDate();
 		displayingTime();
 		cout << endl << "..............";
