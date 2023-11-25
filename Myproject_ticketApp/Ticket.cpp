@@ -10,8 +10,13 @@ class Ticket {
 	int* soldTickets;
 	int noTickets = 0;
 	
+	//int row;
+	//int seatNr;
+	//bool availableSeat;
+	//as face o clasa zona care sa imi stocheze locurile + daca e liber sau ocupat
+	
 	//int maxNrOfTickets;
-	//in functie de varsta sa afisez pe bilet ClientType
+	//in functie de varsta sa afisez pe bilet ClientType, si pretul(pretul difera de la client la client)
 
 public:
 	const int id;
