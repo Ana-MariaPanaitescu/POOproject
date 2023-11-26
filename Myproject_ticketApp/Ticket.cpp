@@ -1,8 +1,11 @@
 #include <iostream>
+
 using namespace std;
 
 enum ClientType { STUDENT = 1, CHILD = 2, ADULT = 3, RETIRED = 4 };
 
+//Idee: genereaza tickete UNICE pe baza numelui clientului + tip + nr bilet
+//exemplu: iau prima litera din nume, o transform in numar cu ajutorul ascii code, lipesc de ea tipul clientului(1,2,3,4) si la sfarsit lipesc de ea id-ul(care e generat in fuctie nu nr de bilete)
 class Ticket {
 	
 	ClientType clientType = ClientType::CHILD;
@@ -164,24 +167,25 @@ public:
 	}
 
 	//FRIENDS
-	//friend ostream& operator<<(ostream& console, Ticket& source);
+	friend ostream& operator<<(ostream& console, Ticket& source);
 
 };
 
-ostream& operator<<(ostream& console, Ticket& source) {
+//nu merge :((      daca pun Ticket&      nu merge nici fara, iar a aparut eroarea  LNK2005
 
-	//console << endl << "Ticket data: ";
-	console << endl << "Id client: " << source.id;
-	console << endl << "ClientType: " << source.getClientTypeName();
-	console << endl << "Client age: " << source.getAge();
-	console << endl << "Row: " << source.getRowNr() << " " << "Seat: " << source.getSeatNr();
-	console << endl << "Price: " << source.getPrice();
+//ostream& operator<<(ostream& console, Ticket& source) {
+//
+//	console << "\n\n" << "Ticket data: ";
+//	console << endl << "Id client: " << source.id;
+//	console << endl << "ClientType: " << source.getClientTypeName();
+//	console << endl << "Client age: " << source.getAge();
+//	console << endl << "Row: " << source.getRowNr() << "  " << "Seat: " << source.getSeatNr();
+//	console << endl << "Price: " << source.getPrice();
+//
+//	return console;
+//}
 
-	return console;
-}
 
-//int Ticket::nrOfTickets = 0;
-//const int Ticket::MIN_VALUE = 0;
 
 //idea: I want to generate ids for the maximum capacity of the location(maximum seats)
 //I need to use the maximum capacity from the location class, don't know for sure how

@@ -73,7 +73,7 @@ int main() {
 	Ticket adult(ADULT, 47, 8, 1, 65.00);
 	adult.printTicketInfo();
 
-	cout << adult;
+	//cout << adult;
 	
 
 }
