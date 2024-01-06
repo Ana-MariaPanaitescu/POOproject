@@ -2,7 +2,8 @@
 #include <string>
 #include "Location.cpp"
 #include "Event.cpp"
-#include "Ticket.h"
+#include "Ticket.cpp"
+//#include "Ticket.h"
 
 int Location::MIN_NR_LETTERS = 5;
 int Location::MIN_CAPACITY = 10;
@@ -71,9 +72,25 @@ int main() {
 	//t2.printTicketInfo();
 
 	Ticket adult(ADULT, 47, 8, 1, 65.00);
-	//adult.printTicketInfo();
+	adult.printTicketInfo();
 
 	cout << adult;
 	
 
 }
+
+int Ticket::nrOfTickets = 0;
+const int Ticket::MIN_VALUE = 0;
+
+ostream& operator<<(ostream& console, Ticket& source) {
+	
+		console << "\n\n" << "Ticket data: ";
+		console << endl << "Id client: " << source.id;
+		console << endl << "ClientType: " << source.getClientTypeName();
+		console << endl << "Client age: " << source.getAge();
+		console << endl << "Row: " << source.getRowNr() << "  " << "Seat: " << source.getSeatNr();
+		console << endl << "Price: " << source.getPrice();
+	
+		return console;
+	}
+
