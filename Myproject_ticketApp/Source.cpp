@@ -72,9 +72,10 @@ int main() {
 	//t2.printTicketInfo();
 
 	Ticket adult(ADULT, 47, 8, 1, 65.00);
-	adult.printTicketInfo();
+	//adult.printTicketInfo();
 
 	cout << adult;
+	cout << e2;
 	
 
 }
@@ -84,13 +85,34 @@ const int Ticket::MIN_VALUE = 0;
 
 ostream& operator<<(ostream& console, Ticket& source) {
 	
-		console << "\n\n" << "Ticket data: ";
-		console << endl << "Id client: " << source.id;
-		console << endl << "ClientType: " << source.getClientTypeName();
-		console << endl << "Client age: " << source.getAge();
-		console << endl << "Row: " << source.getRowNr() << "  " << "Seat: " << source.getSeatNr();
-		console << endl << "Price: " << source.getPrice();
+	console << "\n\n" << "Ticket data: ";
+	console << endl << "Id client: " << source.id;
+	console << endl << "ClientType: " << source.getClientTypeName();
+	console << endl << "Client age: " << source.getAge();
+	console << endl << "Row: " << source.getRowNr() << "  " << "Seat: " << source.getSeatNr();
+	console << endl << "Price: " << source.getPrice();
 	
-		return console;
+	return console;
+}
+
+ostream& operator<<(ostream& console, Event& event) {
+	console << "\n\nThe event data is:";
+	console << endl << "Name: " << event.getEventName();
+	console << endl << "Date: " << event.getDay() << "/" << event.getMonth() << "/" << event.getYear();
+	console << endl << "Time: ";
+	if (event.getHour() >= 0 && event.getHour() < 10) {
+		console  << '0' << event.getHour();
 	}
+	else {
+		console << event.getHour();
+	}
+
+	if (event.getMinutes() >= 0 && event.getMinutes() < 10) {
+		console << ":" << '0' << event.getMinutes();
+	}
+	else {
+		console << ":" << event.getMinutes();
+	}
+	return console;
+}
 
