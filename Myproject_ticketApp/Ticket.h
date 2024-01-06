@@ -5,16 +5,16 @@
 
 using namespace std;
 
-enum ClientType;
+enum ClientType { STUDENT = 1, CHILD = 2, ADULT = 3, RETIRED = 4 };
 
 
 class Ticket {
 
-	ClientType clientType;
-	int clientAge;
-	int nrRow;
-	int nrSeat;
-	float price;
+	ClientType clientType = ClientType::CHILD;
+	int clientAge = 1;
+	int nrRow = 1;
+	int nrSeat = 1;
+	float price = 1.0;
 
 public:
 	const int id;                    
@@ -53,4 +53,3 @@ public:
 
 };
 
-ostream& operator<<(ostream& console, Ticket& source);

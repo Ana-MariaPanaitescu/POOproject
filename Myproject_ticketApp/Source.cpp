@@ -2,7 +2,7 @@
 #include <string>
 #include "Location.cpp"
 #include "Event.cpp"
-#include "Ticket.cpp"
+#include "Ticket.h"
 
 int Location::MIN_NR_LETTERS = 5;
 int Location::MIN_CAPACITY = 10;
@@ -15,8 +15,8 @@ int Event::MIN_VALUE_2 = 1;
 int Event::MAX_DAY = 31;
 int Event::MAX_MONTH = 12;
 
-int Ticket::nrOfTickets = 0;
-const int Ticket::MIN_VALUE = 0;
+//int Ticket::nrOfTickets = 0;
+//const int Ticket::MIN_VALUE = 0;
 
 
 int main() {
@@ -71,7 +71,7 @@ int main() {
 	//t2.printTicketInfo();
 
 	Ticket adult(ADULT, 47, 8, 1, 65.00);
-	adult.printTicketInfo();
+	//adult.printTicketInfo();
 
 	cout << adult;
 	
