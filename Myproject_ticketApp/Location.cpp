@@ -171,4 +171,8 @@ public:
 		cout << endl << "Maximum capacity: " << this->getMaxNrOfSeats();
 		cout << endl << "Total number of rows: " << this->getMaxNrOfRows();
 	}
+
+	friend ostream& operator<<(ostream& console,Location& source);
+
 };
+

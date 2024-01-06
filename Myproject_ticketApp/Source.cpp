@@ -55,7 +55,7 @@ int main() {
 	e1.printEventInfo();
 
 	Event e2("Le Cirque Du Soleil", 9, 5, 5, 8, 2024);
-	e2.printEventInfo();
+	//e2.printEventInfo();
 
 	//e2 = e1;
 	//e2.printEventInfo();
@@ -76,6 +76,7 @@ int main() {
 
 	cout << adult;
 	cout << e2;
+	cout << l2;
 	
 
 }
@@ -113,6 +114,16 @@ ostream& operator<<(ostream& console, Event& event) {
 	else {
 		console << ":" << event.getMinutes();
 	}
+	return console;
+}
+
+ostream& operator<<(ostream& console, Location& location) {
+	console << "\n\n" << "The location data is:";
+	console << endl << "Name: " << location.getLocationName();
+	console << endl << "Address: " << location.getLocationAddress();
+	console << endl << "Zone Name(A,B,C,...): " << location.getZoneName();
+	console << endl << "Nr. of rows: " << location.getMaxNrOfRows();
+	console << endl << "Nr. of seats: " << location.getMaxNrOfSeats();
 	return console;
 }
 
