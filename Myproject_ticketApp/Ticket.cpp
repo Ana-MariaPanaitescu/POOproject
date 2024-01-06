@@ -1,4 +1,4 @@
-#include <iostream>
+#include "Ticket.h"
 
 using namespace std;
 
@@ -171,19 +171,18 @@ public:
 
 };
 
-//nu merge :((      daca pun Ticket&      nu merge nici fara, iar a aparut eroarea  LNK2005
 
-//ostream& operator<<(ostream& console, Ticket& source) {
-//
-//	console << "\n\n" << "Ticket data: ";
-//	console << endl << "Id client: " << source.id;
-//	console << endl << "ClientType: " << source.getClientTypeName();
-//	console << endl << "Client age: " << source.getAge();
-//	console << endl << "Row: " << source.getRowNr() << "  " << "Seat: " << source.getSeatNr();
-//	console << endl << "Price: " << source.getPrice();
-//
-//	return console;
-//}
+ostream& operator<<(ostream& console, Ticket& source) {
+
+	console << "\n\n" << "Ticket data: ";
+	console << endl << "Id client: " << source.id;
+	console << endl << "ClientType: " << source.getClientTypeName();
+	console << endl << "Client age: " << source.getAge();
+	console << endl << "Row: " << source.getRowNr() << "  " << "Seat: " << source.getSeatNr();
+	console << endl << "Price: " << source.getPrice();
+
+	return console;
+}
 
 
 
