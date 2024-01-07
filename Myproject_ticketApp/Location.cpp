@@ -10,7 +10,7 @@ class Location {
 	string zoneName = "-";
 	int maxSeats;  //manages the total nr of seats per each row
 	int nrRows;
-	//bool** occupiedSeats;
+	bool** occupiedSeats;
 
 public:
 	static int MIN_NR_LETTERS;
@@ -71,7 +71,7 @@ public:
 		}
 	}
 
-	//maximum number of seats
+	//maximum number of seats per row
 	int getMaxNrOfSeats() {
 		return this->maxSeats;
 	}
@@ -100,17 +100,29 @@ public:
 		this->setLocationName("No name");
 		this->setLocationAddress("No address");
 		this->setLocationZone("No chosen zone");
-		this->setMaxNrOfSeats(10);
-		this->setNrOfRows(10);
+		this->setMaxNrOfSeats(1);
+		this->setNrOfRows(1);
 	}
 
 	//CONSTRUCTOR
-	Location(const char* name, const string address, const string zoneName, const int maxCapacity, const int nrRows) {
+	Location(const char* name, const string address, const string zoneName, const int maxSeatsPerRow, const int nrRows) {
 		this->setLocationName(name);
 		this->setLocationAddress(address);
 		this->setLocationZone(zoneName);
-		this->setMaxNrOfSeats(maxCapacity);
+		this->setMaxNrOfSeats(maxSeatsPerRow);
 		this->setNrOfRows(nrRows);
+	}
+
+	//Constructor that initialize the occupiedSeats array
+	Location(const char* name, const string address, const string zoneName, const int maxSeatsPerRow, const int nrRows) :occupiedSeats(new bool* [nrRows]) {
+
+		//Initialize the matrix
+		for (int i = 0; i < nrRows; i++) {
+			occupiedSeats[i] = new bool[maxSeatsPerRow];
+			for (int j = 0; j < maxSeatsPerRow; j++) {
+				occupiedSeats[i][j] = false;  // 0 means seat is not occupied
+			}
+		}
 	}
 
 	//COPY CONSTRUCTOR
@@ -159,6 +171,10 @@ public:
 			delete[] this->name;
 			this->name = nullptr;
 		}
+		for (int i = 0; i < this->nrRows; i++) {
+			delete[] occupiedSeats[i];
+		}
+		delete[] occupiedSeats;
 	}
 
 	//FUNCTIONS
@@ -172,6 +188,8 @@ public:
 		cout << endl << "Maximum capacity: " << this->getMaxNrOfSeats();
 		cout << endl << "Total number of rows: " << this->getMaxNrOfRows();
 	}
+
+	//Function to see if a seat is occupied or not
 
 
 	//FRIENDS

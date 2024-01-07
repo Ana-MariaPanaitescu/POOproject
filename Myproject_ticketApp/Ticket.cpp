@@ -9,7 +9,8 @@ enum ClientType { STUDENT = 1, CHILD = 2, ADULT = 3, RETIRED = 4 };
 class Location;  // declaration to let thw compiler know that Location is a class;
 
 //Idee: genereaza tickete UNICE pe baza numelui clientului + tip + nr bilet
-//exemplu: iau prima litera din nume, o transform in numar cu ajutorul ascii code, lipesc de ea tipul clientului(1,2,3,4) si la sfarsit lipesc de ea id-ul(care e generat in fuctie nu nr de bilete)
+//exemplu: iau prima litera din nume, o transform in numar cu ajutorul ascii code, lipesc de ea tipul clientului(1,2,3,4) si la sfarsit lipesc de ea id-ul(care e generat in fuctie de nr de bilete)
+
 class Ticket {
 	
 	char clientName[100] = "";
