@@ -224,6 +224,7 @@ public:
 	}
 	
 	friend ostream& operator<<(ostream& console, Event& source);
+	friend void operator>>(istream& input, Event& event);
 
 };
 
@@ -234,4 +235,7 @@ public:
 //int Event::MIN_VALUE_2 = 1;
 //int Event::MAX_DAY = 31;
 //int Event::MAX_MONTH = 12;
+
+
+
 

@@ -78,8 +78,11 @@ int main() {
 	//cout << e2;
 	//cout << l2;
 
-	cin >> adult;
-	cout << adult;
+	//cin >> adult;
+	//cout << adult;
+
+	cin >> e2;
+	cout << e2;
 	
 
 }
@@ -149,5 +152,23 @@ void operator>>(istream& input, Ticket& ticket) {
 	cout << endl << "Price of the ticket: ";
 	input >> price;
 	ticket.setPrice(price);
+}
+
+void operator>>(istream& input, Event& event) {
+	cout << endl << "Insert the event's name: ";
+	string name;
+	input >> name;
+	event.setEventName(name.c_str());
+	//c_str() is used with string objects to obtain a pointer to a null terminated array of characters. The pointer is a type of const char*
+	int hour, minutes, day, month, year;
+	cout << endl << "Time(hour:minutes): ";
+	input >> hour >> minutes;
+	event.setHour(hour);
+	event.setMinutes(minutes);
+	cout << endl << "Date(dd/mm/yyyy): ";
+	input >> day >> month >> year;
+	event.setDay(day);
+	event.setMonth(month);
+	event.setYear(year);
 }
 
