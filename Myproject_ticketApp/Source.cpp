@@ -157,18 +157,26 @@ void operator>>(istream& input, Ticket& ticket) {
 void operator>>(istream& input, Event& event) {
 	cout << endl << "Insert the event's name: ";
 	string name;
-	input >> name;
+	getline(input, name);
 	event.setEventName(name.c_str());
 	//c_str() is used with string objects to obtain a pointer to a null terminated array of characters. The pointer is a type of const char*
 	int hour, minutes, day, month, year;
-	cout << endl << "Time(hour:minutes): ";
-	input >> hour >> minutes;
+	cout << endl << "TIME(hour:minutes) ";
+	cout << endl << "Hour: ";
+	input >> hour;
 	event.setHour(hour);
+	cout << endl << "Minutes: ";
+	input >> minutes;
 	event.setMinutes(minutes);
-	cout << endl << "Date(dd/mm/yyyy): ";
-	input >> day >> month >> year;
+	cout << endl << "DATE(dd/mm/yyyy) ";
+	cout << endl << "Day: ";
+	input >> day;
 	event.setDay(day);
+	cout << endl << "Month: ";
+	input >> month;
 	event.setMonth(month);
+	cout << endl << "Year: ";
+	input >> year;
 	event.setYear(year);
 }
 
