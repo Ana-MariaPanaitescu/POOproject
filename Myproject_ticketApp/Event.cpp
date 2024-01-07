@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
 
 class Event {
@@ -223,6 +225,8 @@ public:
 		cout << endl << "..............";
 	}
 	
+
+	//FRIENDS
 	friend ostream& operator<<(ostream& console, Event& source);
 	friend void operator>>(istream& input, Event& event);
 

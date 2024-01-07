@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
 
 class Location {
@@ -6,10 +8,9 @@ class Location {
 	char* name = nullptr;
 	string address = "-";
 	string zoneName = "-";
-	int maxSeats;
+	int maxSeats;  //manages the total nr of seats per each row
 	int nrRows;
-	//int nrCol;
-	//int* seatsPerRow;
+	//bool** occupiedSeats;
 
 public:
 	static int MIN_NR_LETTERS;
@@ -172,7 +173,10 @@ public:
 		cout << endl << "Total number of rows: " << this->getMaxNrOfRows();
 	}
 
-	friend ostream& operator<<(ostream& console,Location& source);
 
+	//FRIENDS
+	friend ostream& operator<<(ostream& console,Location& source);
+	friend void operator>>(istream& input, Location& location);
 };
+
 

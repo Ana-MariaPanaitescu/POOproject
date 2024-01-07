@@ -6,6 +6,8 @@ using namespace std;
 
 enum ClientType { STUDENT = 1, CHILD = 2, ADULT = 3, RETIRED = 4 };
 
+class Location;  // declaration to let thw compiler know that Location is a class;
+
 //Idee: genereaza tickete UNICE pe baza numelui clientului + tip + nr bilet
 //exemplu: iau prima litera din nume, o transform in numar cu ajutorul ascii code, lipesc de ea tipul clientului(1,2,3,4) si la sfarsit lipesc de ea id-ul(care e generat in fuctie nu nr de bilete)
 class Ticket {
@@ -15,7 +17,9 @@ class Ticket {
 	int nrRow = 1;
 	int nrSeat = 1;
 	float price = 1.0;
-	
+	bool isOccupied = false;  //to teck if the seat is occupied or not
+	//const Location& location; //reference to the relevant Location object
+
 	//int* soldTickets;
 	//int noTickets = 0;
 	
@@ -168,24 +172,18 @@ public:
 		cout << endl << "Price paid: " << this->getPrice();
 	}
 
+	//Function to check if the seat is available
+	//bool isSeatAvailable() {   // 1 - if it is available  0 - if it is not
+	//	if()
+	//}
+
+
 	//FRIENDS
 	friend ostream& operator<<(ostream& console, Ticket& source);
 	friend void operator>>(istream& input, Ticket& ticket);
 
 };
 
-
-//ostream& operator<<(ostream& console, Ticket& source) {
-//
-//	console << "\n\n" << "Ticket data: ";
-//	console << endl << "Id client: " << source.id;
-//	console << endl << "ClientType: " << source.getClientTypeName();
-//	console << endl << "Client age: " << source.getAge();
-//	console << endl << "Row: " << source.getRowNr() << "  " << "Seat: " << source.getSeatNr();
-//	console << endl << "Price: " << source.getPrice();
-//
-//	return console;
-//}
 
 
 
@@ -194,7 +192,7 @@ public:
 //I need to use the maximum capacity from the location class, don't know for sure how
 
 
-///////////////////////////////////////////////////
+/////////////////////////////////////////////////// WHEN WORKING WITH HEADER THIS IS THE CPP	
 
 
 //	int Ticket::getNrOfTickets() {

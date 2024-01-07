@@ -16,8 +16,8 @@ int Event::MIN_VALUE_2 = 1;
 int Event::MAX_DAY = 31;
 int Event::MAX_MONTH = 12;
 
-//int Ticket::nrOfTickets = 0;
-//const int Ticket::MIN_VALUE = 0;
+int Ticket::nrOfTickets = 0;
+const int Ticket::MIN_VALUE = 0;
 
 
 int main() {
@@ -81,14 +81,15 @@ int main() {
 	//cin >> adult;
 	//cout << adult;
 
-	cin >> e2;
-	cout << e2;
+	//cin >> e2;
+	//cout << e2;
+
+	cin >> l2;
+	cout << l2;
 	
 
 }
 
-int Ticket::nrOfTickets = 0;
-const int Ticket::MIN_VALUE = 0;
 
 ostream& operator<<(ostream& console, Ticket& source) {
 	
@@ -140,15 +141,19 @@ void operator>>(istream& input, Ticket& ticket) {
 	float price;
 	input >> type;
 	ticket.clientType = static_cast<ClientType>(type);
+	
 	cout << endl << "The client age is: ";
 	input >> age;
 	ticket.setAge(age);
+	
 	cout << endl << "The row selected is: ";
 	input >> row;
 	ticket.setRowNr(row);
+	
 	cout << endl << "The selected seat is: ";
 	input >> seat;
 	ticket.setSeatNr(seat);
+	
 	cout << endl << "Price of the ticket: ";
 	input >> price;
 	ticket.setPrice(price);
@@ -160,6 +165,7 @@ void operator>>(istream& input, Event& event) {
 	getline(input, name);
 	event.setEventName(name.c_str());
 	//c_str() is used with string objects to obtain a pointer to a null terminated array of characters. The pointer is a type of const char*
+	
 	int hour, minutes, day, month, year;
 	cout << endl << "TIME(hour:minutes) ";
 	cout << endl << "Hour: ";
@@ -168,6 +174,7 @@ void operator>>(istream& input, Event& event) {
 	cout << endl << "Minutes: ";
 	input >> minutes;
 	event.setMinutes(minutes);
+	
 	cout << endl << "DATE(dd/mm/yyyy) ";
 	cout << endl << "Day: ";
 	input >> day;
@@ -178,5 +185,33 @@ void operator>>(istream& input, Event& event) {
 	cout << endl << "Year: ";
 	input >> year;
 	event.setYear(year);
+}
+
+void operator>>(istream& input, Location& location) {
+	cout << "\n\n" << "Location name is: ";
+	string locName;
+	getline(input, locName);
+	location.setLocationName(locName.c_str());
+
+	cout << endl << "Enter location address: ";
+	string address;
+	getline(input, address);
+	location.setLocationAddress(address);
+
+	cout << endl << "Enter zone name: ";
+	string zone;
+	getline(input, zone);
+	location.setLocationZone(zone);
+	cout << "Debug: Length of zone name: " << zone.length() << endl;
+
+	cout << endl << "Enter max. nr. of seats";
+	int maxSeats;
+	input >> maxSeats;
+	location.setMaxNrOfSeats(maxSeats);
+
+	cout << endl << "Enter nr. of rows:";
+	int rows;
+	input >> rows;
+	location.setNrOfRows(rows);
 }
 
