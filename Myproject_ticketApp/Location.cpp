@@ -114,6 +114,7 @@ public:
 	}
 
 	//Constructor that initialize the occupiedSeats array
+	//Check this
 	Location(const char* name, const string address, const string zoneName, const int maxSeatsPerRow, const int nrRows) :occupiedSeats(new bool* [nrRows]) {
 
 		//Initialize the matrix
@@ -166,15 +167,16 @@ public:
 	}
 
 	//DESTRUCTOR
+	//Check the destructor
 	~Location() {
 		if (this->name != nullptr) {
 			delete[] this->name;
 			this->name = nullptr;
 		}
 		for (int i = 0; i < this->nrRows; i++) {
-			delete[] occupiedSeats[i];
+			delete[] this->occupiedSeats[i];
 		}
-		delete[] occupiedSeats;
+		delete[] this->occupiedSeats;
 	}
 
 	//FUNCTIONS
@@ -190,7 +192,16 @@ public:
 	}
 
 	//Function to see if a seat is occupied or not
+	bool isSeatOccupied(int row, int seat) {
+		// 1 means seat is occupied, 0 means seat is not occupied
+		return occupiedSeats[row - 1][seat - 1];
+	}
 
+	//Function to occupy a seat
+	void occupySeat(int row, int seat) {
+		// Mark the seat as occupied (1)
+		occupiedSeats[row - 1][seat - 1] = true;
+	}
 
 	//FRIENDS
 	friend ostream& operator<<(ostream& console,Location& source);

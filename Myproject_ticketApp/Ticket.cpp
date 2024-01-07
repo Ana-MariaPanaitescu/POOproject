@@ -1,6 +1,7 @@
 //#include "Ticket.h"
 #include <iostream>
 #include <string>
+#include "Location.cpp"
 
 using namespace std;
 
@@ -19,8 +20,8 @@ class Ticket {
 	int nrRow = 1;
 	int nrSeat = 1;
 	float price = 1.0;
-	bool isOccupied = false;  //to teck if the seat is occupied or not
-	//const Location& location; //reference to the relevant Location object
+	bool isOccupied = false;  //to check if the seat is occupied or not
+	Location* location; //reference/pointer to the relevant Location object
 
 	//int* soldTickets;
 	//int noTickets = 0;
@@ -190,9 +191,15 @@ public:
 	}
 
 	//Function to check if the seat is available
-	//bool isSeatAvailable() {   // 1 - if it is available  0 - if it is not
-	//	if()
-	//}
+	bool isSeatAvailable() {   // 1 - if it is available  0 - if it is not
+		int ok = 0;
+		if (this->nrRow >= 1 && this->nrRow <= location->getMaxNrOfRows()
+			&&
+			nrSeat >= 1 && nrSeat <= location->getMaxNrOfSeats() &&
+			!location->isSeatOccupied(nrRow, nrSeat))
+			ok = 1;
+		return ok;
+	}
 
 
 	//FRIENDS
