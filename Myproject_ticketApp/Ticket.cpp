@@ -170,6 +170,7 @@ public:
 
 	//FRIENDS
 	friend ostream& operator<<(ostream& console, Ticket& source);
+	friend void operator>>(istream& input, Ticket& ticket);
 
 };
 
@@ -334,5 +335,7 @@ public:
 //
 //	return console;
 //}
+
+
 
 

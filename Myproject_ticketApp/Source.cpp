@@ -74,9 +74,12 @@ int main() {
 	Ticket adult(ADULT, 47, 8, 1, 65.00);
 	//adult.printTicketInfo();
 
+	//cout << adult;
+	//cout << e2;
+	//cout << l2;
+
+	cin >> adult;
 	cout << adult;
-	cout << e2;
-	cout << l2;
 	
 
 }
@@ -125,5 +128,26 @@ ostream& operator<<(ostream& console, Location& location) {
 	console << endl << "Nr. of rows: " << location.getMaxNrOfRows();
 	console << endl << "Nr. of seats: " << location.getMaxNrOfSeats();
 	return console;
+}
+
+void operator>>(istream& input, Ticket& ticket) {
+	cout << endl << "Check the client type";
+	cout << endl << "Insert (1 - student, 2 - child, 3 - adult, 4 - retired): ";
+	int type, age, row, seat;
+	float price;
+	input >> type;
+	ticket.clientType = static_cast<ClientType>(type);
+	cout << endl << "The client age is: ";
+	input >> age;
+	ticket.setAge(age);
+	cout << endl << "The row selected is: ";
+	input >> row;
+	ticket.setRowNr(row);
+	cout << endl << "The selected seat is: ";
+	input >> seat;
+	ticket.setSeatNr(seat);
+	cout << endl << "Price of the ticket: ";
+	input >> price;
+	ticket.setPrice(price);
 }
 
