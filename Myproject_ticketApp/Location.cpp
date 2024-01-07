@@ -63,7 +63,7 @@ public:
 	}
 
 	void setLocationZone(string newZone) {
-		if (newZone == "" || newZone.length() < Location::MIN_NR_LETTERS) {
+		if (newZone == "") {
 			throw exception("Zone name too short");
 		}
 		else {

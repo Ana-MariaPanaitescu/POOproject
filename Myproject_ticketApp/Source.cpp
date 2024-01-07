@@ -5,7 +5,7 @@
 #include "Ticket.cpp"
 //#include "Ticket.h"
 
-int Location::MIN_NR_LETTERS = 5;
+int Location::MIN_NR_LETTERS = 3;
 int Location::MIN_CAPACITY = 10;
 
 int Event::MIN_NR_LETTERS = 2;
@@ -65,27 +65,27 @@ int main() {
 	Ticket t1;
 	t1.printTicketInfo();
 
-	Ticket t2(STUDENT, 20, 5, 19, 50.30);
+	Ticket t2("Alex Paunescu", STUDENT, 20, 5, 19, 50.30);
 	t2.printTicketInfo();
 
 	//t2 = t1;
 	//t2.printTicketInfo();
 
-	Ticket adult(ADULT, 47, 8, 1, 65.00);
+	Ticket adult("Gabriela Aldici", ADULT, 47, 8, 1, 65.00);
 	//adult.printTicketInfo();
 
 	//cout << adult;
 	//cout << e2;
 	//cout << l2;
 
-	//cin >> adult;
-	//cout << adult;
+	cin >> adult;
+	cout << adult;
 
 	//cin >> e2;
 	//cout << e2;
 
-	cin >> l2;
-	cout << l2;
+	//cin >> l2;
+	//cout << l2;
 	
 
 }
@@ -95,6 +95,7 @@ ostream& operator<<(ostream& console, Ticket& source) {
 	
 	console << "\n\n" << "Ticket data: ";
 	console << endl << "Id client: " << source.id;
+	console << endl << "Client name: " << source.getClientName();
 	console << endl << "ClientType: " << source.getClientTypeName();
 	console << endl << "Client age: " << source.getAge();
 	console << endl << "Row: " << source.getRowNr() << "  " << "Seat: " << source.getSeatNr();
@@ -128,14 +129,18 @@ ostream& operator<<(ostream& console, Location& location) {
 	console << "\n\n" << "The location data is:";
 	console << endl << "Name: " << location.getLocationName();
 	console << endl << "Address: " << location.getLocationAddress();
-	console << endl << "Zone Name(A,B,C,...): " << location.getZoneName();
+	console << endl << "Zone Name: " << location.getZoneName();
 	console << endl << "Nr. of rows: " << location.getMaxNrOfRows();
 	console << endl << "Nr. of seats: " << location.getMaxNrOfSeats();
 	return console;
 }
 
 void operator>>(istream& input, Ticket& ticket) {
-	cout << endl << "Check the client type";
+	cout << endl << "Enter the name of the client: ";
+	//char name[100];
+	input.getline(ticket.clientName, 100); //istream& getline (char* s, streamsize n )     exemplu:  cin.getline(s , 11);    
+	
+	cout << endl << "Enter the client type";
 	cout << endl << "Insert (1 - student, 2 - child, 3 - adult, 4 - retired): ";
 	int type, age, row, seat;
 	float price;
@@ -198,13 +203,13 @@ void operator>>(istream& input, Location& location) {
 	getline(input, address);
 	location.setLocationAddress(address);
 
-	cout << endl << "Enter zone name: ";
+	cout << endl << "Enter zone name(Category A, Category B,..., VIP): ";
 	string zone;
 	getline(input, zone);
 	location.setLocationZone(zone);
-	cout << "Debug: Length of zone name: " << zone.length() << endl;
+	//cout << "Debug: Length of zone name: " << zone.length() << endl;
 
-	cout << endl << "Enter max. nr. of seats";
+	cout << endl << "Enter max. nr. of seats: ";
 	int maxSeats;
 	input >> maxSeats;
 	location.setMaxNrOfSeats(maxSeats);

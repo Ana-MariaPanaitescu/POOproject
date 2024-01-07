@@ -12,6 +12,7 @@ class Location;  // declaration to let thw compiler know that Location is a clas
 //exemplu: iau prima litera din nume, o transform in numar cu ajutorul ascii code, lipesc de ea tipul clientului(1,2,3,4) si la sfarsit lipesc de ea id-ul(care e generat in fuctie nu nr de bilete)
 class Ticket {
 	
+	char clientName[100] = "";
 	ClientType clientType = ClientType::CHILD;
 	int clientAge = 1;
 	int nrRow = 1;
@@ -50,6 +51,18 @@ public:
 	
 	//SETTERS + VALIDATION
 	//GETTERS
+
+	//Client name
+	char* getClientName() {
+		return this->clientName;
+	}
+
+	void setClientName(const char* newName) {
+		if (strlen(newName) >= 100)
+			throw exception("Client name is too long");
+		else
+			strcpy_s(this->clientName, newName);
+	}
 
 	//Client type
 	//function for displaying the name
@@ -126,8 +139,9 @@ public:
 	}
 
 	//Constructor
-	Ticket(ClientType clientType, int age, int row, int seat, float price):id(Ticket::nrOfTickets) {
+	Ticket(const char* name, ClientType clientType, int age, int row, int seat, float price):id(Ticket::nrOfTickets) {
 		Ticket::increaseByOneTicket();
+		this->setClientName(name);
 		this->clientType = clientType;
 		this->setAge(age);
 		this->setRowNr(row);
@@ -137,6 +151,7 @@ public:
 
 	//Copy constructor
 	Ticket(const Ticket& source): id(source.id){
+		strcpy_s(this->clientName, source.clientName);
 		this->clientType = source.clientType;
 		this->clientAge = source.clientAge;
 		this->nrRow = source.nrRow;
@@ -146,7 +161,7 @@ public:
 	}
 	//operator=
 	Ticket& operator=(const Ticket& source) {
-
+		strcpy_s(this->clientName, source.clientName);
 		this->clientType = source.clientType;
 		this->clientAge = source.clientAge;
 		this->nrRow = source.nrRow;
@@ -165,6 +180,7 @@ public:
 	void printTicketInfo() {
 		cout << endl << "------------------------";
 		cout << endl << "Id client is: " << this->id;
+		cout << endl << "Client name: " << this->getClientName();
 		cout << endl << "Client type: " << this->getClientTypeName();
 		cout << endl << "Client age:" << this->getAge();
 		cout << endl << "Row number: " << this->getRowNr();
