@@ -7,7 +7,7 @@ using namespace std;
 
 enum ClientType { STUDENT = 1, CHILD = 2, ADULT = 3, RETIRED = 4 };
 
-class Location;  // declaration to let thw compiler know that Location is a class;
+//class Location;  // declaration to let the compiler know that Location is a class;
 
 //Idee: genereaza tickete UNICE pe baza numelui clientului + tip + nr bilet
 //exemplu: iau prima litera din nume, o transform in numar cu ajutorul ascii code, lipesc de ea tipul clientului(1,2,3,4) si la sfarsit lipesc de ea id-ul(care e generat in fuctie de nr de bilete)
@@ -20,7 +20,7 @@ class Ticket {
 	int nrRow = 1;
 	int nrSeat = 1;
 	float price = 1.0;
-	bool isOccupied = false;  //to check if the seat is occupied or not
+	//bool isOccupied = false;  //to check if the seat is occupied or not
 	Location location;        //reference/pointer to the relevant Location object
 
 	//int* soldTickets;
@@ -193,15 +193,21 @@ public:
 	}
 
 	//Function to check if the seat is available
+	// 1 - if it is available  0 - if it is not
+
+	bool isSeatAvailable(){ 
+		return !location.isSeatOccupied(this->nrRow, this->nrSeat);
+	}
+
 	//bool isSeatAvailable() {   // 1 - if it is available  0 - if it is not
 	//	int ok = 0;
-	//	if (this->nrRow >= 1 && this->nrRow <= location->getMaxNrOfRows()
-	//		&&
-	//		nrSeat >= 1 && nrSeat <= location->getMaxNrOfSeats() &&
-	//		!location->isSeatOccupied(nrRow, nrSeat))
+	//	if (this->nrRow >= 1 && this->nrRow <= location.getMaxNrOfRows()
+	//		&& this->nrSeat >= 1 && this->nrSeat <= location.getMaxNrOfSeats() &&
+	//		!location.isSeatOccupied(nrRow, nrSeat))
 	//		ok = 1;
 	//	return ok;
 	//}
+
 
 
 	//FRIENDS

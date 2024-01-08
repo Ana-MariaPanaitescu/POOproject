@@ -65,6 +65,8 @@ int main() {
 	Ticket t1;
 	t1.printTicketInfo();
 
+	Location l4("Romexpo", "Aviatorilor", 50, 50);
+
 	Ticket t2("Alex Paunescu", STUDENT, 20, 5, 19, 50.30);
 	t2.printTicketInfo();
 
