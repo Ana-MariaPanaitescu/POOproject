@@ -21,7 +21,7 @@ class Ticket {
 	int nrSeat = 1;
 	float price = 1.0;
 	bool isOccupied = false;  //to check if the seat is occupied or not
-	Location* location; //reference/pointer to the relevant Location object
+	Location location;        //reference/pointer to the relevant Location object
 
 	//int* soldTickets;
 	//int noTickets = 0;
@@ -135,13 +135,15 @@ public:
 	}
 
 	//Default ctor
-	Ticket() :id(Ticket::MIN_VALUE) {
+	Ticket() :id(Ticket::MIN_VALUE), location("None", "No address", 2, 2) {
 
 		Ticket::increaseByOneTicket();
 	}
 
 	//Constructor
-	Ticket(const char* name, ClientType clientType, int age, int row, int seat, float price):id(Ticket::nrOfTickets) {
+	Ticket(const char* name, ClientType clientType, int age, int row, int seat, float price, const char* locName, string locAddress, int maxSeatsPerRow, int rows)
+		:id(Ticket::nrOfTickets), location(locName,locAddress, maxSeatsPerRow, rows)
+	{
 		Ticket::increaseByOneTicket();
 		this->setClientName(name);
 		this->clientType = clientType;
@@ -152,7 +154,7 @@ public:
 	}
 
 	//Copy constructor
-	Ticket(const Ticket& source): id(source.id){
+	Ticket(const Ticket& source): id(source.id), location(source.location){
 		strcpy_s(this->clientName, source.clientName);
 		this->clientType = source.clientType;
 		this->clientAge = source.clientAge;
@@ -191,15 +193,15 @@ public:
 	}
 
 	//Function to check if the seat is available
-	bool isSeatAvailable() {   // 1 - if it is available  0 - if it is not
-		int ok = 0;
-		if (this->nrRow >= 1 && this->nrRow <= location->getMaxNrOfRows()
-			&&
-			nrSeat >= 1 && nrSeat <= location->getMaxNrOfSeats() &&
-			!location->isSeatOccupied(nrRow, nrSeat))
-			ok = 1;
-		return ok;
-	}
+	//bool isSeatAvailable() {   // 1 - if it is available  0 - if it is not
+	//	int ok = 0;
+	//	if (this->nrRow >= 1 && this->nrRow <= location->getMaxNrOfRows()
+	//		&&
+	//		nrSeat >= 1 && nrSeat <= location->getMaxNrOfSeats() &&
+	//		!location->isSeatOccupied(nrRow, nrSeat))
+	//		ok = 1;
+	//	return ok;
+	//}
 
 
 	//FRIENDS

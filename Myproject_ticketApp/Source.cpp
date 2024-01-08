@@ -6,7 +6,7 @@
 //#include "Ticket.h"
 
 int Location::MIN_NR_LETTERS = 3;
-int Location::MIN_CAPACITY = 10;
+int Location::MIN_CAPACITY = 2;
 
 int Event::MIN_NR_LETTERS = 2;
 int Event::MIN_VALUE = 0;

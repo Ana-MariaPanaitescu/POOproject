@@ -102,6 +102,14 @@ public:
 		this->setLocationZone("No chosen zone");
 		this->setMaxNrOfSeats(1);
 		this->setNrOfRows(1);
+
+		//occupiedSeats=new bool*[setMaxNrOfSeats]
+		//for (int i = 0; i < nrRows; i++) {
+		//	occupiedSeats[i] = new bool[maxSeatsPerRow];
+		//	for (int j = 0; j < maxSeatsPerRow; j++) {
+		//		occupiedSeats[i][j] = false;  // 0 means seat is not occupied
+		//	}
+		//}
 	}
 
 	//CONSTRUCTOR
@@ -113,18 +121,26 @@ public:
 		this->setNrOfRows(nrRows);
 	}
 
-	//Constructor that initialize the occupiedSeats array
-	//Check this
-	Location(const char* name, const string address, const string zoneName, const int maxSeatsPerRow, const int nrRows) :occupiedSeats(new bool* [nrRows]) {
-
-		//Initialize the matrix
-		for (int i = 0; i < nrRows; i++) {
-			occupiedSeats[i] = new bool[maxSeatsPerRow];
-			for (int j = 0; j < maxSeatsPerRow; j++) {
-				occupiedSeats[i][j] = false;  // 0 means seat is not occupied
-			}
-		}
+	//Constructor with some arguments (name, address, seatsPerRow, nrRows)
+	Location(const char* name, const string address, const int maxSeatsPerRow, const int nrRows) {
+		this->setLocationName(name);
+		this->setLocationAddress(address);
+		this->setMaxNrOfSeats(maxSeatsPerRow);
+		this->setNrOfRows(nrRows);
 	}
+
+	////Constructor that initialize the occupiedSeats array
+	////Check this
+	//Location(const char* name, const string address, const string zoneName, const int maxSeatsPerRow, const int nrRows) :occupiedSeats(new bool* [nrRows]) {
+
+	//	//Initialize the matrix
+	//	for (int i = 0; i < nrRows; i++) {
+	//		occupiedSeats[i] = new bool[maxSeatsPerRow];
+	//		for (int j = 0; j < maxSeatsPerRow; j++) {
+	//			occupiedSeats[i][j] = false;  // 0 means seat is not occupied
+	//		}
+	//	}
+	//}
 
 	//COPY CONSTRUCTOR
 	Location(const Location& source) {
