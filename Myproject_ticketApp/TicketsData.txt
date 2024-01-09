@@ -1,0 +1,22 @@
+
+NEW TICKET
+
+The location data is:
+Name: Romexpo
+Address: Aviatorilor, Nr.74
+Zone Name: VIP
+Nr. of rows: 50
+Nr. of seats: 50
+
+Ticket data: 
+Id client: 0
+Client name: Maria Aldici
+ClientType: Adult
+Client age: 47
+Row: 8  Seat: 1
+Price: 65
+
+The event data is:
+Name: Le Cirque Du Soleil
+Date: 5/8/2024
+Time: 09:05

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 #include "TicketandLocation.cpp"
 #include "Event.cpp"
 
@@ -20,8 +21,104 @@ const int Ticket::MIN_VALUE = 0;
 
 int main() {
 
+	//INTERFACE
+
+	int number;
+
+	cout << endl << "WELCOME TO THE TICKETING MENU";
+	cout << endl;
+	cout << endl << "If you want to read tickets data from the file press 1";
+	cout << endl << "If you want to insert your ticket data press 2";
+	cout << endl;
+
+	cin >> number;
+
+	ofstream outputFile("TicketsData.txt", ios::out | ios::trunc);   //writing in a text file
+	ifstream inputFile("ReportTickets.txt", ios::in);
+	
+	//Create a ticket and location data and also an event data
+	Location romexpo("Romexpo", "Aviatorilor, Nr.74", "VIP", 50, 50);
+	Ticket maria("Maria Aldici", ADULT, 47, 8, 1, 65.00, romexpo);
+	Event spectacolCirc("Le Cirque Du Soleil", 9, 5, 5, 8, 2024);
+
+
+
+
+	if (number == 1) {
+		if (!inputFile.is_open()) {
+			cout << endl << "The ReportTickets.txt is missing";
+		}
+		else {
+			cout << endl << "The ReportTickets.txt is available";
+		}
+	}
+	else {
+		if (number == 2) {
+			if (outputFile.is_open()) {
+				cout << endl << "The TicketsData.txt file has been created. We can use it";
+			}
+			outputFile << endl << "NEW TICKET";
+			outputFile << romexpo;
+			outputFile << maria;
+			outputFile << spectacolCirc;
+
+		}
+		outputFile.close();
+	}
+
+	//cout << endl << "Insert your data here";
+
+	//Text files
+
+	//Writing in a text file
+	//ofstream outputFile("TicketsData.txt", ios::out | ios::trunc);
+
+	//if (outputFile.is_open()) {
+	//	cout << endl << "Now you can insert your ticket data";
+	//}
+	//else{
+	//	cout << endl << "Error opening file";
+	//	return -1;
+	//}
+
+	
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////
+	// Example usage
+	//Location cinemaLocation("Cinema", "123 Main St", "VIP", 10, 10);
+	//Ticket lola("Lola White", CHILD, 7, 3, 5, 10.0, cinemaLocation);
+
+	//if (lola.isSeatAvailable()) { //daca intoarece 0 => e liber altfel nu
+	//	// If the seat is available, occupy it
+	//	lola.occupySeat();
+	//	cout << "Seat is available. Proceed with the ticket purchase." << endl;
+	//}
+	//else {
+	//	cout << "Seat is already occupied. Please choose another seat." << endl;
+	//}
+	//
+
+	//Ticket myTicket("John Doe", ADULT, 25, 3, 5, 15.0, cinemaLocation);
+
+	//	// Check if the seat is available
+	//	if (myTicket.isSeatAvailable()) {
+	//		cout << "Seat is available. Proceed with the ticket purchase." << endl;
+	//	}
+	//	else {
+	//		cout << "Seat is already occupied. Please choose another seat." << endl;
+	//	}
+
+
+
 	//TESTING PHASE
-	Location l1;
+	/*Location l1;
 	l1.printLocationInfo();
 
 	Location l2("Sala Palatului", "Strada Primaverii, Nr.82", "Category B", 50, 50);
@@ -75,7 +172,7 @@ int main() {
 	//cout << e2;
 
 	//cin >> l2;
-	//cout << l2;
+	//cout << l2;*/
 
 
 }

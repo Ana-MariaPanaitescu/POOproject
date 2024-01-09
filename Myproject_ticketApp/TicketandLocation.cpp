@@ -98,7 +98,7 @@ public:
 	}
 
 	//Default constructor
-	Location() : occupiedSeats(nullptr) {
+	Location() : occupiedSeats(new bool*[0]) {
 		this->setLocationName("No name");
 		this->setLocationAddress("No address");
 		this->setLocationZone("No chosen zone");
@@ -238,17 +238,25 @@ public:
 		cout << endl << "Total number of rows: " << this->getMaxNrOfRows();
 	}
 
-	//Function to see if a seat is occupied or not
-	bool isSeatOccupied(int row, int seat) {
-		// 1 means seat is occupied, 0 means seat is not occupied
-		return occupiedSeats[row - 1][seat - 1];
+	////Function to see if a seat is occupied or not
+	//bool isSeatOccupied(int row, int seat) {
+	//	// 1 means seat is occupied, 0 means seat is not occupied
+	//	return occupiedSeats[row - 1][seat - 1];
+	//}
+
+	////Function to occupy a seat
+	//void occupySeat(int row, int seat) {
+	//	// Mark the seat as occupied (1)
+	//	occupiedSeats[row - 1][seat - 1] = true;
+	//}
+
+	// Getter function for occupiedSeats matrix
+	bool** getOccupiedSeats() {
+		return occupiedSeats;
 	}
 
-	//Function to occupy a seat
-	void occupySeat(int row, int seat) {
-		// Mark the seat as occupied (1)
-		occupiedSeats[row - 1][seat - 1] = true;
-	}
+	//Function to check the status of the seats
+	//void checkStatus()
 
 	//FRIENDS
 	friend ostream& operator<<(ostream& console, Location& source);
@@ -268,17 +276,6 @@ class Ticket {
 	int nrSeat = 1;
 	float price = 1.0;
 	Location loc;        //reference/pointer to the relevant Location object
-
-	//int* soldTickets;
-	//int noTickets = 0;
-
-	//int row;
-	//int seatNr;
-	//bool availableSeat;
-	//as face o clasa zona care sa imi stocheze locurile + daca e liber sau ocupat
-
-	//int maxNrOfTickets;
-	//in functie de varsta sa afisez pe bilet ClientType, si pretul(pretul difera de la client la client)
 
 public:
 	const int id;                     //we use it to generate ids for the clients
@@ -409,6 +406,8 @@ public:
 		this->setRowNr(row);
 		this->setSeatNr(seat);
 		this->setPrice(price);
+
+		//occupySeat();
 	}
 
 	//Copy constructor
@@ -453,9 +452,20 @@ public:
 	//Function to check if the seat is available
 	// 1 - if it is available  0 - if it is not
 
-	bool isSeatAvailable() {
-		return !loc.isSeatOccupied(this->nrRow, this->nrSeat);
-	}
+	//bool isSeatAvailable() {
+	//	//1 - no 0 - yes
+	//	return !loc.isSeatOccupied(this->nrRow, this->nrSeat);
+	//}
+	
+
+	//bool isSeatAvailable() {
+	//	bool** seats = loc.getOccupiedSeats();
+	//	return !seats[nrRow - 1][nrSeat - 1];
+	//}
+
+	//I need a function that stores the status of the matrix bool** occupied seats
+	//based on this i will occupy or not a seat
+
 
 	//bool isSeatAvailable() {   // 1 - if it is available  0 - if it is not
 	//	int ok = 0;
