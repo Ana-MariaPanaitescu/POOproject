@@ -1,0 +1,64 @@
+
+NEW TICKET
+
+The location data is:
+Name: Romexpo
+Address: Aviatorilor, Nr.74
+Zone Name: VIP
+Nr. of rows: 50
+Nr. of seats: 50
+
+Ticket data: 
+Id client: 0
+Client name: Maria Aldici
+ClientType: Adult
+Client age: 47
+Row: 8  Seat: 1
+Price: 65
+
+The event data is:
+Name: Le Cirque Du Soleil
+Date: 5/8/2024
+Time: 09:05
+
+NEW TICKET
+
+The location data is:
+Name: Sala Teatrului mic
+Address: Piata Univ
+Zone Name: vip
+Nr. of rows: 50
+Nr. of seats: 50
+
+Ticket data: 
+Id client: 0
+Client name: Maria
+ClientType: Retired
+Client age: 67
+Row: 66  Seat: 5
+Price: 70
+
+The event data is:
+Name: La teatru
+Date: 4/5/2024
+
+NEW TICKET
+
+The location data is:
+Name: Raddison
+Address: Victoriei
+Zone Name: vip
+Nr. of rows: 4
+Nr. of seats: 44
+
+Ticket data: 
+Id client: 0
+Client name: vlad
+ClientType: Retired
+Client age: 76
+Row: 7  Seat: 55
+Price: 65
+
+The event data is:
+Name: La suc
+Date: 3/4/2023

@@ -28,13 +28,14 @@ int main() {
 	cout << endl << "WELCOME TO THE TICKETING MENU";
 	cout << endl;
 	cout << endl << "If you want to read tickets data from the file press 1";
-	cout << endl << "If you want to insert your ticket data press 2";
-	cout << endl << "If you want to exit press 3";
+	cout << endl << "If you want to insert your ticket data from the code press 2";
+	cout << endl << "If you want to insert data from console press 3";
+	cout << endl << "If you want to exit press 4";
 	cout << endl;
 
 	cin >> number;
 
-	ofstream outputFile("TicketsData.txt", ios::out | ios::trunc);   //writing in a text file
+	ofstream outputFile("TicketsData.txt", ios::out | ios::app);   //writing in a text file
 	ifstream inputFile("ReportTickets.txt", ios::in);
 	
 	//Create a ticket and location data and also an event data
@@ -171,33 +172,55 @@ int main() {
 		
 		else {
 			if (number == 3) {
-				cout << endl << "Press any key on the keyboard to exit";
-				return 0;
+				if (outputFile.is_open()) {
+					cout << endl << "INSERT YOUR TICKET DATA" << endl;
+
+					cout << endl << "Insert the client details";
+					cout << endl << "--------------------------";
+					Ticket userTicket;
+					cin >> userTicket;  // Overloaded >> operator to read ticket data from the keyboard
+
+					cout << endl << "Insert the location details";
+					cout << endl << "----------------------------";
+
+					Location eventLocation;
+					cin >> eventLocation;
+
+					cout << endl << "Insert the event detail";
+					cout << endl << "------------------------";
+
+					Event event;
+					cin >> event;
+
+					// Save the user's ticket data to the file
+
+					outputFile << endl << "NEW TICKET";
+					outputFile << eventLocation;
+					outputFile << userTicket;
+					outputFile << event;
+
+					cout << endl << "Ticket data saved successfully." << endl;
+				}
+
+
+
+			
+			}
+			else {
+				if (number == 4) {
+					cout << endl << "Press any key on the keyboard to exit";
+					return 0;
+				}
+				else {
+					cout << endl << "Invalid option. Please press 1, 2, 3 or 4";
+					cout << endl << "Press any key and try again";
+				}
 			}
 		}
 	}
 
-	//cout << endl << "Insert your data here";
-
-	//Text files
-
-	//Writing in a text file
-	//ofstream outputFile("TicketsData.txt", ios::out | ios::trunc);
-
-	//if (outputFile.is_open()) {
-	//	cout << endl << "Now you can insert your ticket data";
-	//}
-	//else{
-	//	cout << endl << "Error opening file";
-	//	return -1;
-	//}
 
 	
-
-
-
-
-
 
 
 
@@ -336,6 +359,7 @@ ostream& operator<<(ostream& console, Location& location) {
 void operator>>(istream& input, Ticket& ticket) {
 	cout << endl << "Enter the name of the client: ";
 	//char name[100];
+	input.ignore();
 	input.getline(ticket.clientName, 100); //istream& getline (char* s, streamsize n )     exemplu:  cin.getline(s , 11);    
 
 	cout << endl << "Enter the client type";
@@ -346,24 +370,29 @@ void operator>>(istream& input, Ticket& ticket) {
 	ticket.clientType = static_cast<ClientType>(type);
 
 	cout << endl << "The client age is: ";
+	input.ignore();
 	input >> age;
 	ticket.setAge(age);
 
 	cout << endl << "The row selected is: ";
+	input.ignore();
 	input >> row;
 	ticket.setRowNr(row);
 
 	cout << endl << "The selected seat is: ";
+	input.ignore();
 	input >> seat;
 	ticket.setSeatNr(seat);
 
 	cout << endl << "Price of the ticket: ";
+	input.ignore();
 	input >> price;
 	ticket.setPrice(price);
 }
 
 void operator>>(istream& input, Event& event) {
 	cout << endl << "Insert the event's name: ";
+	input.ignore();
 	string name;
 	getline(input, name);
 	event.setEventName(name.c_str());
@@ -372,47 +401,60 @@ void operator>>(istream& input, Event& event) {
 	int hour, minutes, day, month, year;
 	cout << endl << "TIME(hour:minutes) ";
 	cout << endl << "Hour: ";
+	//input.ignore();
 	input >> hour;
 	event.setHour(hour);
+
 	cout << endl << "Minutes: ";
+	//input.ignore();
 	input >> minutes;
 	event.setMinutes(minutes);
 
 	cout << endl << "DATE(dd/mm/yyyy) ";
 	cout << endl << "Day: ";
+	//input.ignore();
 	input >> day;
 	event.setDay(day);
+
 	cout << endl << "Month: ";
+	//input.ignore();
 	input >> month;
 	event.setMonth(month);
+	
 	cout << endl << "Year: ";
+	//input.ignore();
 	input >> year;
 	event.setYear(year);
 }
 
 void operator>>(istream& input, Location& location) {
 	cout << "\n\n" << "Location name is: ";
+	input.ignore();
 	string locName;
 	getline(input, locName);
 	location.setLocationName(locName.c_str());
 
 	cout << endl << "Enter location address: ";
+	//input.ignore();
 	string address;
 	getline(input, address);
 	location.setLocationAddress(address);
 
 	cout << endl << "Enter zone name(Category A, Category B,..., VIP): ";
+	//input.ignore();
 	string zone;
 	getline(input, zone);
 	location.setLocationZone(zone);
 	//cout << "Debug: Length of zone name: " << zone.length() << endl;
 
 	cout << endl << "Enter max. nr. of seats per row: ";
+	//input.ignore();
 	int maxSeatsPerRow;
 	input >> maxSeatsPerRow;
 	location.setMaxNrOfSeats(maxSeatsPerRow);
 
 	cout << endl << "Enter nr. of rows:";
+	//input.ignore();
 	int rows;
 	input >> rows;
 	location.setNrOfRows(rows);
