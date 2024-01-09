@@ -201,10 +201,6 @@ int main() {
 
 					cout << endl << "Ticket data saved successfully." << endl;
 				}
-
-
-
-			
 			}
 			else {
 				if (number == 4) {
