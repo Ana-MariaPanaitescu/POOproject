@@ -52,8 +52,8 @@ int main() {
 
 			cout << "\n\n" << "TICKETS DATA IS DISPLAYED HERE: ";
 			cout << "\n";
-			//int ok = 0;
-			//while (ok == 0) {
+			int ok = 0;
+			while (ok == 0) {
 				cout << endl << "-----TICKET DATA-----";
 
 				string clientName;
@@ -150,17 +150,17 @@ int main() {
 				string verify;
 				getline(inputFile, verify);
 
-				//if (verify.empty()) {
-				//	cout << endl << "Next ticket data";
-				//}
-				//else {
-				//	if (verify == "#") {
-				//		ok = 1;
-				//	}
-				//}
+				if (verify.empty()) {
+					cout << endl << "Next ticket data";
+				}
+				else {
+					if (verify == "#") {
+						ok = 1;
+					}
+				}
 
 				//cout << endl << day << "/" << month << "/" << year;
-			//}
+			}
 			
 			inputFile.close();
 		}
