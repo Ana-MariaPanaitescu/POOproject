@@ -401,28 +401,23 @@ void operator>>(istream& input, Event& event) {
 	int hour, minutes, day, month, year;
 	cout << endl << "TIME(hour:minutes) ";
 	cout << endl << "Hour: ";
-	//input.ignore();
 	input >> hour;
 	event.setHour(hour);
 
 	cout << endl << "Minutes: ";
-	//input.ignore();
 	input >> minutes;
 	event.setMinutes(minutes);
 
 	cout << endl << "DATE(dd/mm/yyyy) ";
 	cout << endl << "Day: ";
-	//input.ignore();
 	input >> day;
 	event.setDay(day);
 
 	cout << endl << "Month: ";
-	//input.ignore();
 	input >> month;
 	event.setMonth(month);
 	
 	cout << endl << "Year: ";
-	//input.ignore();
 	input >> year;
 	event.setYear(year);
 }
