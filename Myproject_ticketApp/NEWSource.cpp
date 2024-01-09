@@ -52,115 +52,101 @@ int main() {
 
 			cout << "\n\n" << "TICKETS DATA IS DISPLAYED HERE: ";
 			cout << "\n";
-			int ok = 0;
-			while (ok == 0) {
-				cout << endl << "-----TICKET DATA-----";
+				
+			cout << endl << "-----TICKET DATA-----";
 
-				string clientName;
-				char buffer[100];
-				inputFile.getline(buffer, 100);
-				clientName = string(buffer);
-				cout << endl << "Client name is: " << clientName;
+			string clientName;
+			char buffer[100];
+			inputFile.getline(buffer, 100);
+			clientName = string(buffer);
+			cout << endl << "Client name is: " << clientName;
 
-				cout << endl << "Client Type (1 - student, 2 - child, 3 - adult, 4 - retired): ";
-				int clientTypeInt;
-				inputFile >> clientTypeInt;
-				ClientType type = static_cast<ClientType>(clientTypeInt);
-				cout << type;
+			cout << endl << "Client Type (1 - student, 2 - child, 3 - adult, 4 - retired): ";
+			int clientTypeInt;
+			inputFile >> clientTypeInt;
+			ClientType type = static_cast<ClientType>(clientTypeInt);
+			cout << type;
 
-				int age;
-				inputFile >> age;
-				cout << endl << "The client age is: " << age;
+			int age;
+			inputFile >> age;
+			cout << endl << "The client age is: " << age;
 
-				int row;
-				inputFile >> row;
-				cout << endl << "Row: " << row << "    ";
+			int row;
+			inputFile >> row;
+			cout << endl << "Row: " << row << "    ";
 
-				int seat;
-				inputFile >> seat;
-				cout << "Seat: " << seat;
+			int seat;
+			inputFile >> seat;
+			cout << "Seat: " << seat;
 
-				float price;
-				inputFile >> price;
-				cout << endl << "The ticket price was: " << price;
+			float price;
+			inputFile >> price;
+			cout << endl << "The ticket price was: " << price;
 
-				inputFile.ignore();
-				string locationName;
-				char buffer2[100];
-				inputFile.getline(buffer2, 100);
-				locationName = string(buffer2);
-				cout << endl << "Location: " << locationName;
+			inputFile.ignore();
+			string locationName;
+			char buffer2[100];
+			inputFile.getline(buffer2, 100);
+			locationName = string(buffer2);
+			cout << endl << "Location: " << locationName;
 
-				string address;
-				char buffer3[200];
-				inputFile.getline(buffer3, 200);
-				address = string(buffer3);
-				cout << endl << "Address: " << address;
+			string address;
+			char buffer3[200];
+			inputFile.getline(buffer3, 200);
+			address = string(buffer3);
+			cout << endl << "Address: " << address;
 
-				string category;
-				char buffer4[50];
-				inputFile.getline(buffer4, 50);
-				category = string(buffer4);
-				cout << endl << "Category: " << category;
+			string category;
+			char buffer4[50];
+			inputFile.getline(buffer4, 50);
+			category = string(buffer4);
+			cout << endl << "Category: " << category;
 
-				string eventName;
-				char buffer5[100];
-				inputFile.getline(buffer5, 100);
-				eventName = string(buffer5);
-				cout << endl << "Event name: " << eventName;
+			string eventName;
+			char buffer5[100];
+			inputFile.getline(buffer5, 100);
+			eventName = string(buffer5);
+			cout << endl << "Event name: " << eventName;
 
-				int hour;
-				inputFile >> hour;
-				cout << endl << "-----TIME-----";
-				if (hour >= 0 && hour < 10) {
-					cout << endl << '0' << hour;
-				}
-				else
-					cout << endl << hour;
-
-				int minutes;
-				inputFile >> minutes;
-				if (minutes >= 0 && minutes < 10) {
-					cout << ":" << '0' << minutes;
-				}
-				else {
-					cout << ":" << minutes;
-				}
-
-				cout << endl << "-----DATE-----";
-
-				int day;
-				inputFile >> day;
-				if (day > 0 && day < 10)
-					cout << endl << "0" << day << "/";
-				else
-					cout << endl << day << "/";
-
-				int month;
-				inputFile >> month;
-				if (month > 0 && month < 10)
-					cout << "0" << month << "/";
-				else
-					cout << month << "/";
-
-				int year;
-				inputFile >> year;
-				cout << year;
-
-				string verify;
-				getline(inputFile, verify);
-
-				if (verify.empty()) {
-					cout << endl << "Next ticket data";
-				}
-				else {
-					if (verify == "#") {
-						ok = 1;
-					}
-				}
-
-				//cout << endl << day << "/" << month << "/" << year;
+			int hour;
+			inputFile >> hour;
+			cout << endl << "-----TIME-----";
+			if (hour >= 0 && hour < 10) {
+				cout << endl << '0' << hour;
 			}
+			else
+				cout << endl << hour;
+
+			int minutes;
+			inputFile >> minutes;
+			if (minutes >= 0 && minutes < 10) {
+				cout << ":" << '0' << minutes;
+			}
+			else {
+				cout << ":" << minutes;
+			}
+
+			cout << endl << "-----DATE-----";
+
+			int day;
+			inputFile >> day;
+			if (day > 0 && day < 10)
+				cout << endl << "0" << day << "/";
+			else
+				cout << endl << day << "/";
+
+			int month;
+			inputFile >> month;
+			if (month > 0 && month < 10)
+				cout << "0" << month << "/";
+			else
+				cout << month << "/";
+
+			int year;
+			inputFile >> year;
+			cout << year;
+
+			//cout << endl << day << "/" << month << "/" << year;
 			
 			inputFile.close();
 		}
