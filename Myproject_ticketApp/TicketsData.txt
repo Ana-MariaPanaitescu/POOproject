@@ -42,23 +42,44 @@ The event data is:
 Name: La teatru
 Date: 4/5/2024
 
+
 NEW TICKET
 
 The location data is:
-Name: Raddison
-Address: Victoriei
+Name: Sala Luceafarul
+Address: Piata Universitatii
 Zone Name: vip
-Nr. of rows: 4
-Nr. of seats: 44
+Nr. of rows: 20
+Nr. of seats: 40
 
 Ticket data: 
 Id client: 0
-Client name: vlad
-ClientType: Retired
-Client age: 76
-Row: 7  Seat: 55
-Price: 65
+Client name: marian daniel
+ClientType: Student
+Client age: 20
+Row: 4  Seat: 5
+Price: 10
 
 The event data is:
-Name: La suc
-Date: 3/4/2023
+Name: La teatru
+
+NEW TICKET
+
+The location data is:
+Name: moghioros
+Address: drumul taberei
+Zone Name: scaun
+Nr. of rows: 5
+Nr. of seats: 10
+
+Ticket data: 
+Id client: 0
+Client name: marian
+ClientType: Adult
+Client age: 45
+Row: 3  Seat: 4
+Price: 30
+
+The event data is:
+Name: teatru in aer liber
+Date: 2/3/2024

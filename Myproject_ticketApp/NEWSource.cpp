@@ -109,9 +109,10 @@ int main() {
 			eventName = string(buffer5);
 			cout << endl << "Event name: " << eventName;
 
+			cout << endl << "-----TIME-----";
+
 			int hour;
 			inputFile >> hour;
-			cout << endl << "-----TIME-----";
 			if (hour >= 0 && hour < 10) {
 				cout << endl << '0' << hour;
 			}
@@ -214,38 +215,6 @@ int main() {
 			}
 		}
 	}
-
-
-	
-
-
-
-/////////////////////////////////////////////
-	// Example usage
-	//Location cinemaLocation("Cinema", "123 Main St", "VIP", 10, 10);
-	//Ticket lola("Lola White", CHILD, 7, 3, 5, 10.0, cinemaLocation);
-
-	//if (lola.isSeatAvailable()) { //daca intoarece 0 => e liber altfel nu
-	//	// If the seat is available, occupy it
-	//	lola.occupySeat();
-	//	cout << "Seat is available. Proceed with the ticket purchase." << endl;
-	//}
-	//else {
-	//	cout << "Seat is already occupied. Please choose another seat." << endl;
-	//}
-	//
-
-	//Ticket myTicket("John Doe", ADULT, 25, 3, 5, 15.0, cinemaLocation);
-
-	//	// Check if the seat is available
-	//	if (myTicket.isSeatAvailable()) {
-	//		cout << "Seat is available. Proceed with the ticket purchase." << endl;
-	//	}
-	//	else {
-	//		cout << "Seat is already occupied. Please choose another seat." << endl;
-	//	}
-
-
 
 	//TESTING PHASE
 	/*Location l1;

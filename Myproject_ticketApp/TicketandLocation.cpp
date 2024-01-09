@@ -452,10 +452,10 @@ public:
 	//Function to check if the seat is available
 	// 1 - if it is available  0 - if it is not
 
-	//bool isSeatAvailable() {
-	//	//1 - no 0 - yes
-	//	return !loc.isSeatOccupied(this->nrRow, this->nrSeat);
-	//}
+	bool isSeatAvailable() {
+		//1 - no 0 - yes
+		return !loc.isSeatOccupied(this->nrRow, this->nrSeat);
+	}
 	
 
 	//bool isSeatAvailable() {
@@ -463,8 +463,6 @@ public:
 	//	return !seats[nrRow - 1][nrSeat - 1];
 	//}
 
-	//I need a function that stores the status of the matrix bool** occupied seats
-	//based on this i will occupy or not a seat
 
 
 	//bool isSeatAvailable() {   // 1 - if it is available  0 - if it is not
