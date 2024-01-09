@@ -238,17 +238,17 @@ public:
 		cout << endl << "Total number of rows: " << this->getMaxNrOfRows();
 	}
 
-	////Function to see if a seat is occupied or not
-	//bool isSeatOccupied(int row, int seat) {
-	//	// 1 means seat is occupied, 0 means seat is not occupied
-	//	return occupiedSeats[row - 1][seat - 1];
-	//}
+	//Function to see if a seat is occupied or not
+	bool isSeatOccupied(int row, int seat) {
+		// 1 means seat is occupied, 0 means seat is not occupied
+		return occupiedSeats[row - 1][seat - 1];
+	}
 
-	////Function to occupy a seat
-	//void occupySeat(int row, int seat) {
-	//	// Mark the seat as occupied (1)
-	//	occupiedSeats[row - 1][seat - 1] = true;
-	//}
+	//Function to occupy a seat
+	void occupySeat(int row, int seat) {
+		// Mark the seat as occupied (1)
+		occupiedSeats[row - 1][seat - 1] = true;
+	}
 
 	// Getter function for occupiedSeats matrix
 	bool** getOccupiedSeats() {
