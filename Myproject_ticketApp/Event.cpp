@@ -119,12 +119,12 @@ public:
 	}
 
 	//Default construct
-private:
+public:
 	Event() {
 
 	}
 
-public:
+
 	//Constructor
 	Event(const char* name, int hour, int mnt, int day, int month, int year) {
 		this->setEventName(name);

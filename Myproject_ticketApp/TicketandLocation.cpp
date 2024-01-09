@@ -172,16 +172,19 @@ public:
 		//this (destination)
 		//source (source)
 
-		//if (this != &source) {
-		//	// Deallocate existing resources
-		//	if (this->name != nullptr) {
-		//		delete[] this->name;
-		//		this->name = nullptr;
-		//	}
-		//	for (int i = 0; i < this->nrRows; i++) {
-		//		delete[] this->occupiedSeats[i];
-		//	}
-		//	delete[] this->occupiedSeats;
+		if (this != &source) {
+			// Deallocate existing resources
+			if (this->name != nullptr) {
+				delete[] this->name;
+				this->name = nullptr;
+			}
+			if (this->occupiedSeats != nullptr) {
+				for (int i = 0; i < this->nrRows; i++) {
+					delete[] this->occupiedSeats[i];
+				}
+				delete[] this->occupiedSeats;
+				this->occupiedSeats = nullptr;
+			}
 
 			// Copy values from source
 			if (source.name != nullptr) {
@@ -201,7 +204,7 @@ public:
 					this->occupiedSeats[i][j] = source.occupiedSeats[i][j];
 				}
 			}
-		//}
+		}
 		return *this;
 
 	}
@@ -214,10 +217,13 @@ public:
 			this->name = nullptr;
 		}
 		//Deallocate the matrix
-		for (int i = 0; i < this->nrRows; i++) {
-			delete[] this->occupiedSeats[i];
+		if (this->occupiedSeats != nullptr) {
+			for (int i = 0; i < this->nrRows; i++) {
+				delete[] this->occupiedSeats[i];
+			}
+			delete[] this->occupiedSeats;
+			this->occupiedSeats = nullptr;
 		}
-		delete[] this->occupiedSeats;
 	}
 
 	//FUNCTIONS

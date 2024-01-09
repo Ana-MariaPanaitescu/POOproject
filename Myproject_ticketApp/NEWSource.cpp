@@ -2,7 +2,6 @@
 #include <string>
 #include "TicketandLocation.cpp"
 #include "Event.cpp"
-//#include "Ticket.h"
 
 int Location::MIN_NR_LETTERS = 3;
 int Location::MIN_CAPACITY = 1;
@@ -21,40 +20,27 @@ const int Ticket::MIN_VALUE = 0;
 
 int main() {
 
-	//Testing phase
-	//imi trebuie: operators, one dynamically allocated numeric vector, one constant field, one method static
-	//overload operators << and >> 
-	//another 2 overloaded operator for each class
-
-	//one statically defined array, one dynamically array
-	//at least one class defines static field for each class
-	//at least one class defines a constant field
-	//each class at least 2 generic methods for processing/displaying
-	//each class at least 2 ctors with parameters, a copy ctor, a destructor, operator=
-	// >> and << for each class
-	// and other operators
-
+	//TESTING PHASE
 	Location l1;
 	l1.printLocationInfo();
 
 	Location l2("Sala Palatului", "Strada Primaverii, Nr.82", "Category B", 50, 50);
-	//l2.printLocationInfo();
+	l2.printLocationInfo();
 
-	Location l3 = l2;  //copy constructor
-
+	//Location l3 = l2;  //copy constructor
 	//l3.printLocationInfo();
 
-	l1 = l3;  //  l1.operator=(l3)      
-	l1.printLocationInfo();
+	//l1 = l3;  //  l1.operator=(l3)      
+	//l1.printLocationInfo();
 
 	//Event e0;
-	Event e1("Musicalul Mamma Mia", 17, 30, 8, 12, 2023);
+	//Event e1("Musicalul Mamma Mia", 17, 30, 8, 12, 2023);
 	//e1.displayingDate();
 	//e1.displayingTime();
-	e1.printEventInfo();
+	//e1.printEventInfo();
 
 	Event e2("Le Cirque Du Soleil", 9, 5, 5, 8, 2024);
-	//e2.printEventInfo();
+	e2.printEventInfo();
 
 	//e2 = e1;
 	//e2.printEventInfo();
@@ -62,12 +48,12 @@ int main() {
 	//e3.printEventInfo();
 
 	Ticket t1;
-	t1.printTicketInfo();
+	//t1.printTicketInfo();
 
 	Location l4("Romexpo", "Aviatorilor", 50, 50);
 
-	Ticket t2("Alex Paunescu", STUDENT, 20, 5, 19, 50.30, l2);
-	t2.printTicketInfo();
+	//Ticket t2("Alex Paunescu", STUDENT, 20, 5, 19, 50.30, l2);
+	//t2.printTicketInfo();
 
 	//t2 = t1;
 	//t2.printTicketInfo();
@@ -75,12 +61,15 @@ int main() {
 	Ticket adult("Gabriela Aldici", ADULT, 47, 8, 1, 65.00, l2);
 	//adult.printTicketInfo();
 
+	//Ticket adult2("Vica Moraru", ADULT, 47, 8, 1, 65.00, l2);
+
+
 	//cout << adult;
 	//cout << e2;
 	//cout << l2;
 
-	cin >> adult;
-	cout << adult;
+	//cin >> adult;
+	//cout << adult;
 
 	//cin >> e2;
 	//cout << e2;
@@ -210,10 +199,10 @@ void operator>>(istream& input, Location& location) {
 	location.setLocationZone(zone);
 	//cout << "Debug: Length of zone name: " << zone.length() << endl;
 
-	cout << endl << "Enter max. nr. of seats: ";
-	int maxSeats;
-	input >> maxSeats;
-	location.setMaxNrOfSeats(maxSeats);
+	cout << endl << "Enter max. nr. of seats per row: ";
+	int maxSeatsPerRow;
+	input >> maxSeatsPerRow;
+	location.setMaxNrOfSeats(maxSeatsPerRow);
 
 	cout << endl << "Enter nr. of rows:";
 	int rows;
